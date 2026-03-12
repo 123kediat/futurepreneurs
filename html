@@ -1,1 +1,1446 @@
-Updated HTML content with new logo URL... (full content not specified)
+<!doctype html>
+<html lang="en" class="h-full">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Futurepreneurs | E-Cell TIU</title>
+  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+  <script src="/_sdk/element_sdk.js"></script>
+  <script src="/_sdk/data_sdk.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&amp;family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --navy-dark: #0a1628;
+      --navy: #0f2447;
+      --royal-blue: #1e40af;
+      --accent-gold: #f59e0b;
+      --light-blue: #3b82f6;
+    }
+    
+    html, body {
+      height: 100%;
+      margin: 0;
+      overflow: auto;
+      scroll-behavior: smooth;
+    }
+
+    ::-webkit-scrollbar {
+      width: 0;
+      height: 0;
+    }
+
+    * {
+      scrollbar-width: none;
+    }
+    
+    .font-display {
+      font-family: 'Playfair Display', Georgia, serif;
+    }
+    
+    .font-body {
+      font-family: 'Inter', system-ui, sans-serif;
+    }
+    
+    .gradient-hero {
+      background: linear-gradient(135deg, #0a1628 0%, #0f2447 40%, #1e3a5f 100%);
+    }
+    
+    .gradient-overlay {
+      background: radial-gradient(ellipse at 30% 20%, rgba(30, 64, 175, 0.3) 0%, transparent 50%),
+                  radial-gradient(ellipse at 70% 80%, rgba(59, 130, 246, 0.2) 0%, transparent 50%);
+    }
+    
+    .glow-text {
+      text-shadow: 0 0 40px rgba(59, 130, 246, 0.4);
+    }
+    
+    .card-gradient {
+      background: linear-gradient(145deg, rgba(15, 36, 71, 0.8) 0%, rgba(10, 22, 40, 0.9) 100%);
+      border: 1px solid rgba(59, 130, 246, 0.2);
+    }
+    
+    .animate-float {
+      animation: float 6s ease-in-out infinite;
+    }
+    
+    .animate-float-delayed {
+      animation: float 6s ease-in-out infinite;
+      animation-delay: -3s;
+    }
+    
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-20px); }
+    }
+    
+    @keyframes pulse-slow {
+      0%, 100% { opacity: 0.6; }
+      50% { opacity: 1; }
+    }
+    
+    .nav-blur {
+      backdrop-filter: blur(12px);
+      background: rgba(10, 22, 40, 0.85);
+    }
+    
+    .btn-primary {
+      background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%);
+      box-shadow: 0 4px 20px rgba(30, 64, 175, 0.4);
+      transition: all 0.3s ease;
+    }
+    
+    .btn-primary:hover {
+      box-shadow: 0 6px 30px rgba(59, 130, 246, 0.6);
+      transform: translateY(-2px);
+    }
+    
+    .stat-card {
+      background: rgba(15, 36, 71, 0.6);
+      border: 1px solid rgba(59, 130, 246, 0.15);
+      backdrop-filter: blur(10px);
+    }
+    
+    .section-dark {
+      background: linear-gradient(180deg, #0f2447 0%, #0a1628 100%);
+    }
+    
+    .section-gradient {
+      background: linear-gradient(180deg, #0a1628 0%, #0f2447 50%, #0a1628 100%);
+    }
+    
+    .gold-accent {
+      color: #f59e0b;
+    }
+    
+    .geometric-pattern {
+      background-image: 
+        linear-gradient(30deg, rgba(59, 130, 246, 0.05) 12%, transparent 12.5%, transparent 87%, rgba(59, 130, 246, 0.05) 87.5%, rgba(59, 130, 246, 0.05)),
+        linear-gradient(150deg, rgba(59, 130, 246, 0.05) 12%, transparent 12.5%, transparent 87%, rgba(59, 130, 246, 0.05) 87.5%, rgba(59, 130, 246, 0.05)),
+        linear-gradient(30deg, rgba(59, 130, 246, 0.05) 12%, transparent 12.5%, transparent 87%, rgba(59, 130, 246, 0.05) 87.5%, rgba(59, 130, 246, 0.05)),
+        linear-gradient(150deg, rgba(59, 130, 246, 0.05) 12%, transparent 12.5%, transparent 87%, rgba(59, 130, 246, 0.05) 87.5%, rgba(59, 130, 246, 0.05));
+      background-size: 80px 140px;
+      background-position: 0 0, 0 0, 40px 70px, 40px 70px;
+    }
+
+    select {
+      color-scheme: dark;
+    }
+
+    select option {
+      background: #0a1628;
+      color: #ffffff;
+    }
+
+    textarea {
+      color: #e0e7ff !important;
+    }
+
+    textarea::placeholder {
+      color: rgba(163, 230, 253, 0.4) !important;
+    }
+
+    .modal-backdrop {
+      background: rgba(0, 0, 0, 0.8);
+      backdrop-filter: blur(4px);
+    }
+
+    .modal-content {
+      max-height: 90vh;
+      overflow-y: auto;
+    }
+
+    .faq-item {
+      border-bottom: 1px solid rgba(59, 130, 246, 0.2);
+    }
+
+    .faq-item:last-child {
+      border-bottom: none;
+    }
+
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+      padding-right: 2rem;
+    }
+
+    .faq-answer.open {
+      max-height: 500px;
+      padding-bottom: 1.5rem;
+    }
+
+    .faq-icon {
+      width: 1.5rem;
+      height: 1.5rem;
+      flex-shrink: 0;
+      transition: transform 0.3s ease;
+    }
+
+    .faq-icon.open {
+      transform: rotate(180deg);
+    }
+
+    /* Gallery Carousel Styles */
+    .carousel-container {
+      overflow: hidden;
+      width: 100%;
+    }
+
+    .carousel-track {
+      display: flex;
+      gap: 1.5rem;
+      animation: scrollLeft 40s linear infinite;
+    }
+
+    .carousel-track.scroll-right {
+      animation: scrollRight 40s linear infinite;
+    }
+
+    @keyframes scrollLeft {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    @keyframes scrollRight {
+      0% { transform: translateX(-50%); }
+      100% { transform: translateX(0); }
+    }
+
+    .carousel-item {
+      flex: 0 0 280px;
+      height: 280px;
+      border-radius: 1rem;
+      overflow: hidden;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+
+    .carousel-item:hover {
+      transform: scale(1.05);
+    }
+
+    .carousel-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .gallery-lightbox {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.95);
+      z-index: 1000;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .gallery-lightbox.open {
+      display: flex;
+    }
+
+    .lightbox-content {
+      position: relative;
+      max-width: 90vw;
+      max-height: 90vh;
+    }
+
+    .lightbox-image {
+      max-width: 100%;
+      max-height: 80vh;
+      object-fit: contain;
+    }
+
+    .lightbox-close {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      background: rgba(255, 255, 255, 0.2);
+      border: none;
+      color: white;
+      width: 2.5rem;
+      height: 2.5rem;
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 10;
+      transition: background 0.3s;
+    }
+
+    .lightbox-close:hover {
+      background: rgba(255, 255, 255, 0.3);
+    }
+
+    .lightbox-nav {
+      position: absolute;
+      top: 50%;
+      left: 0;
+      right: 0;
+      transform: translateY(-50%);
+      display: flex;
+      justify-content: space-between;
+      padding: 0 2rem;
+      pointer-events: none;
+    }
+
+    .lightbox-nav button {
+      pointer-events: auto;
+      background: rgba(255, 255, 255, 0.2);
+      border: none;
+      color: white;
+      width: 3rem;
+      height: 3rem;
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.3s;
+    }
+
+    .lightbox-nav button:hover {
+      background: rgba(255, 255, 255, 0.3);
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .gallery-grid-item {
+      aspect-ratio: 1;
+      overflow: hidden;
+      border-radius: 1rem;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+
+    .gallery-grid-item:hover {
+      transform: scale(1.05);
+    }
+
+    .gallery-grid-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    #gallery-page-modal {
+      background: linear-gradient(180deg, #0a1628 0%, #0f2447 50%, #0a1628 100%);
+    }
+  </style>
+  <style>body { box-sizing: border-box; }</style>
+ </head>
+ <body class="h-full font-body text-white overflow-auto">
+  <div id="app-wrapper" class="w-full min-h-full gradient-hero"><!-- Navigation -->
+   <nav class="nav-blur fixed top-0 left-0 right-0 z-50 border-b border-blue-500/10">
+    <div class="max-w-7xl mx-auto px-6 py-4">
+     <div class="flex items-center justify-between">
+      <div class="flex items-center gap-3">
+       <img src="https://i.ibb.co/xSDp322g/IMG-20260216-WA0020.jpg" alt="Futurepreneurs Logo" class="w-10 h-10 rounded-lg object-cover" loading="lazy">
+       <div><span class="font-display text-xl font-bold tracking-tight">Futurepreneurs</span> <span class="block text-xs text-blue-300/70 -mt-1">E-Cell • TIU</span>
+       </div>
+      </div>
+      <div class="hidden md:flex items-center gap-8"><a href="#about" class="text-sm text-gray-300 hover:text-white transition-colors">About</a> <a href="#initiatives" class="text-sm text-gray-300 hover:text-white transition-colors">Initiatives</a> <a href="#incubation-cell" class="text-sm text-gray-300 hover:text-white transition-colors">Incubation</a> <a href="#seek-support" class="text-sm text-gray-300 hover:text-white transition-colors">Support</a> <a href="#spotlights" class="text-sm text-gray-300 hover:text-white transition-colors">Spotlights</a> <a href="#team" class="text-sm text-gray-300 hover:text-white transition-colors">Team</a> <button id="nav-sponsors-btn" class="text-sm text-gray-300 hover:text-white transition-colors">Sponsors</button> <a href="#contact" class="text-sm text-gray-300 hover:text-white transition-colors">Contact</a>
+      </div><button id="mobile-menu-btn" class="md:hidden p-2 text-gray-300 hover:text-white">
+       <svg class="w-6 h-6" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+       </svg></button>
+     </div>
+    </div>
+   </nav><!-- Hero Section -->
+   <section class="relative min-h-screen flex items-center justify-center gradient-overlay geometric-pattern pt-20">
+    <div class="absolute inset-0 overflow-hidden pointer-events-none">
+     <div class="absolute top-1/4 left-10 w-64 h-64 bg-blue-500/10 rounded-full blur-3xl animate-float"></div>
+     <div class="absolute bottom-1/4 right-10 w-80 h-80 bg-blue-600/10 rounded-full blur-3xl animate-float-delayed"></div>
+     <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-blue-400/5 rounded-full blur-3xl" style="animation: pulse-slow 6s ease-in-out infinite;"></div>
+    </div>
+    <div class="relative z-10 max-w-5xl mx-auto px-6 text-center"><a href="https://www.technoindiaeducation.com/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-500/10 border border-blue-500/20 mb-8 hover:bg-blue-500/20 cursor-pointer transition-colors"> <span class="w-2 h-2 rounded-full bg-amber-400 animate-pulse"></span> <span class="text-sm text-blue-200">Department of Management — Techno India University</span> </a>
+     <h1 id="hero-title" class="font-display text-5xl md:text-7xl lg:text-8xl font-bold mb-6 glow-text leading-tight">Future<span class="gold-accent">preneurs</span></h1>
+     <p id="hero-subtitle" class="text-xl md:text-2xl text-blue-100/80 max-w-2xl mx-auto mb-10 leading-relaxed">Igniting the entrepreneurial spirit. Building tomorrow's business leaders today.</p>
+     <div class="flex flex-col sm:flex-row items-center justify-center gap-4"><a href="#incubation-cell" class="btn-primary px-8 py-4 rounded-full text-lg font-semibold flex items-center gap-2"> Explore Incubation 
+       <svg class="w-5 h-5" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+       </svg></a> <a href="#about" class="px-8 py-4 rounded-full text-lg font-medium border border-blue-400/30 hover:bg-blue-500/10 transition-all"> Explore More </a>
+     </div>
+     <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-20">
+      <div class="stat-card rounded-2xl p-6 text-center">
+       <div class="font-display text-3xl md:text-4xl font-bold gold-accent mb-1">
+        50+
+       </div>
+       <div class="text-sm text-blue-200/70">
+        Active Members
+       </div>
+      </div>
+      <div class="stat-card rounded-2xl p-6 text-center">
+       <div class="font-display text-3xl md:text-4xl font-bold gold-accent mb-1">
+        15+
+       </div>
+       <div class="text-sm text-blue-200/70">
+        Events Hosted
+       </div>
+      </div>
+      <div class="stat-card rounded-2xl p-6 text-center">
+       <div class="font-display text-3xl md:text-4xl font-bold gold-accent mb-1">
+        10+
+       </div>
+       <div class="text-sm text-blue-200/70">
+        Startups Incubated
+       </div>
+      </div>
+      <div class="stat-card rounded-2xl p-6 text-center">
+       <div class="font-display text-3xl md:text-4xl font-bold gold-accent mb-1">
+        5+
+       </div>
+       <div class="text-sm text-blue-200/70">
+        Industry Partners
+       </div>
+      </div>
+     </div>
+    </div>
+   </section><!-- About Section -->
+   <section id="about" class="section-dark py-24">
+    <div class="max-w-7xl mx-auto px-6">
+     <div class="grid lg:grid-cols-2 gap-16 items-center">
+      <div><span class="text-amber-400 font-semibold text-sm uppercase tracking-widest mb-4 block">Who We Are</span>
+       <h2 id="about-title" class="font-display text-4xl md:text-5xl font-bold mb-6 leading-tight">Nurturing Ideas Into <span class="gold-accent">Impactful Ventures</span></h2>
+       <p class="text-blue-100/70 text-lg leading-relaxed mb-6">Futurepreneurs is the flagship Entrepreneurship Cell of the Department of Management at Techno India University. We are a dynamic community of aspiring entrepreneurs, innovators, and changemakers committed to fostering the entrepreneurial ecosystem within our campus and beyond.</p>
+       <p class="text-blue-100/70 text-lg leading-relaxed mb-8">Our mission is to inspire, educate, and empower students to transform their innovative ideas into successful business ventures through mentorship, workshops, competitions, and networking opportunities.</p>
+       <div class="flex flex-wrap gap-4">
+        <div class="flex items-center gap-2 text-blue-200">
+         <svg class="w-5 h-5 text-amber-400" fill="currentColor" viewbox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+         </svg><span>Startup Incubation</span>
+        </div>
+        <div class="flex items-center gap-2 text-blue-200">
+         <svg class="w-5 h-5 text-amber-400" fill="currentColor" viewbox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+         </svg><span>Industry Mentorship</span>
+        </div>
+        <div class="flex items-center gap-2 text-blue-200">
+         <svg class="w-5 h-5 text-amber-400" fill="currentColor" viewbox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+         </svg><span>Networking Events</span>
+        </div>
+       </div>
+      </div>
+      <div class="relative">
+       <div class="card-gradient rounded-3xl p-8 relative overflow-hidden">
+        <div class="absolute top-0 right-0 w-32 h-32 bg-blue-500/20 rounded-full blur-2xl"></div>
+        <div class="relative z-10">
+         <div class="grid grid-cols-2 gap-6">
+          <div class="bg-navy-dark/50 rounded-2xl p-6 border border-blue-500/10">
+           <div class="w-12 h-12 rounded-xl bg-blue-500/20 flex items-center justify-center mb-4">
+            <svg class="w-6 h-6 text-blue-400" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0114 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+            </svg>
+           </div>
+           <h4 class="font-semibold text-lg mb-2">Ideation</h4>
+           <p class="text-blue-200/60 text-sm">Transform concepts into viable business models</p>
+          </div>
+          <div class="bg-navy-dark/50 rounded-2xl p-6 border border-blue-500/10">
+           <div class="w-12 h-12 rounded-xl bg-amber-500/20 flex items-center justify-center mb-4">
+            <svg class="w-6 h-6 text-amber-400" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
+            </svg>
+           </div>
+           <h4 class="font-semibold text-lg mb-2">Growth</h4>
+           <p class="text-blue-200/60 text-sm">Scale your startup with expert guidance</p>
+          </div>
+          <div class="bg-navy-dark/50 rounded-2xl p-6 border border-blue-500/10">
+           <div class="w-12 h-12 rounded-xl bg-green-500/20 flex items-center justify-center mb-4">
+            <svg class="w-6 h-6 text-green-400" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+            </svg>
+           </div>
+           <h4 class="font-semibold text-lg mb-2">Network</h4>
+           <p class="text-blue-200/60 text-sm">Connect with investors &amp; industry leaders</p>
+          </div>
+          <div class="bg-navy-dark/50 rounded-2xl p-6 border border-blue-500/10">
+           <div class="w-12 h-12 rounded-xl bg-purple-500/20 flex items-center justify-center mb-4">
+            <svg class="w-6 h-6 text-purple-400" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
+            </svg>
+           </div>
+           <h4 class="font-semibold text-lg mb-2">Innovate</h4>
+           <p class="text-blue-200/60 text-sm">Access resources &amp; cutting-edge tools</p>
+          </div>
+         </div>
+        </div>
+       </div>
+      </div>
+     </div>
+    </div>
+   </section><!-- Initiatives Section -->
+   <section id="initiatives" class="section-gradient py-24 geometric-pattern">
+    <div class="max-w-7xl mx-auto px-6">
+     <div class="text-center mb-16"><span class="text-amber-400 font-semibold text-sm uppercase tracking-widest mb-4 block">What We Do</span>
+      <h2 class="font-display text-4xl md:text-5xl font-bold mb-4">Our <span class="gold-accent">Initiatives</span></h2>
+      <p class="text-blue-100/70 text-lg max-w-2xl mx-auto">Comprehensive programs designed to nurture entrepreneurial talent at every stage</p>
+     </div>
+     <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div class="card-gradient rounded-3xl p-8 hover:border-blue-400/40 transition-all duration-300 group">
+       <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-blue-500 to-blue-700 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+        <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+        </svg>
+       </div>
+       <h3 class="font-display text-2xl font-bold mb-3">Startup Bootcamps</h3>
+       <p class="text-blue-100/60 leading-relaxed">Intensive programs covering business model canvas, pitch deck creation, market validation, and MVP development.</p>
+      </div>
+      <div class="card-gradient rounded-3xl p-8 hover:border-blue-400/40 transition-all duration-300 group">
+       <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-amber-500 to-amber-700 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+        <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+        </svg>
+       </div>
+       <h3 class="font-display text-2xl font-bold mb-3">Mentor Connect</h3>
+       <p class="text-blue-100/60 leading-relaxed">One-on-one mentorship sessions with successful entrepreneurs, industry experts, and angel investors.</p>
+      </div>
+      <div class="card-gradient rounded-3xl p-8 hover:border-blue-400/40 transition-all duration-300 group">
+       <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-green-500 to-green-700 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+        <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
+        </svg>
+       </div>
+       <h3 class="font-display text-2xl font-bold mb-3">Pitch Competitions</h3>
+       <p class="text-blue-100/60 leading-relaxed">Regular pitch events where students present ideas to panels of judges for feedback and potential funding.</p>
+      </div>
+      <div class="card-gradient rounded-3xl p-8 hover:border-blue-400/40 transition-all duration-300 group">
+       <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-purple-500 to-purple-700 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+        <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+        </svg>
+       </div>
+       <h3 class="font-display text-2xl font-bold mb-3">E-Learning Hub</h3>
+       <p class="text-blue-100/60 leading-relaxed">Curated resources, online courses, case studies, and entrepreneurship literature for self-paced learning.</p>
+      </div>
+      <div class="card-gradient rounded-3xl p-8 hover:border-blue-400/40 transition-all duration-300 group">
+       <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-red-500 to-red-700 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+        <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+        </svg>
+       </div>
+       <h3 class="font-display text-2xl font-bold mb-3">Industry Visits</h3>
+       <p class="text-blue-100/60 leading-relaxed">Organized visits to startups, incubators, and corporate innovation labs for real-world exposure.</p>
+      </div>
+      <div class="card-gradient rounded-3xl p-8 hover:border-blue-400/40 transition-all duration-300 group">
+       <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-cyan-500 to-cyan-700 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+        <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 4a2 2 0 114 0v1a1 1 0 001 1h3a1 1 0 011 1v3a1 1 0 01-1 1h-1a2 2 0 100 4h1a1 1 0 011 1v3a1 1 0 01-1 1h-3a1 1 0 01-1-1v-1a2 2 0 10-4 0v1a1 1 0 01-1 1H7a1 1 0 01-1-1v-3a1 1 0 00-1-1H4a2 2 0 110-4h1a1 1 0 001-1V7a1 1 0 011-1h3a1 1 0 001-1V4z" />
+        </svg>
+       </div>
+       <h3 class="font-display text-2xl font-bold mb-3">Hackathons</h3>
+       <p class="text-blue-100/60 leading-relaxed">24-48 hour innovation sprints to solve real-world problems with technology and creative thinking.</p>
+      </div>
+     </div>
+    </div>
+   </section><!-- Incubation Cell Section -->
+   <section id="incubation-cell" class="section-gradient py-24 geometric-pattern">
+    <div class="max-w-7xl mx-auto px-6">
+     <div class="text-center mb-16"><span class="text-amber-400 font-semibold text-sm uppercase tracking-widest mb-4 block">The Launchpad</span>
+      <h2 class="font-display text-4xl md:text-5xl font-bold mb-4">Futurepreneurs <span class="gold-accent">Incubation Cell</span></h2>
+      <p class="text-blue-100/70 text-lg max-w-3xl mx-auto">From Campus Concepts to Market-Ready Startups. Transform your napkin sketch into a scalable business.</p>
+     </div><!-- Mission & Vision -->
+     <div class="grid md:grid-cols-2 gap-8 mb-16">
+      <div class="card-gradient rounded-3xl p-8">
+       <span class="text-green-400 font-semibold text-sm uppercase tracking-widest mb-4 block">Our Purpose</span>
+       <h3 class="font-display text-2xl font-bold mb-4">Mission</h3>
+       <p class="text-blue-100/70 leading-relaxed">To identify, nurture, and accelerate high-potential student-led ventures by providing a robust ecosystem of mentorship, technical resources, and investor networks, specifically tailored to the Indian startup landscape.</p>
+      </div>
+      <div class="card-gradient rounded-3xl p-8">
+       <span class="text-amber-400 font-semibold text-sm uppercase tracking-widest mb-4 block">Our Goal</span>
+       <h3 class="font-display text-2xl font-bold mb-4">Vision</h3>
+       <p class="text-blue-100/70 leading-relaxed">To transform Techno India University into a premier hub for entrepreneurship in Eastern India, creating a generation of "Job Creators" who solve real-world problems through sustainable business models.</p>
+      </div>
+     </div><!-- The Journey -->
+     <div class="mb-20">
+      <h3 class="font-display text-3xl font-bold mb-12 text-center">The Incubation <span class="gold-accent">Journey</span></h3>
+      <p class="text-blue-100/70 text-center mb-12 max-w-3xl mx-auto">A 4-step roadmap for every student entrepreneur, from napkin sketch to market launch.</p>
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+       <div class="card-gradient rounded-2xl p-6">
+        <div class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-blue-500/20 font-bold text-amber-400 mb-4">
+         01
+        </div>
+        <h4 class="font-display text-lg font-bold mb-3">Ideation &amp; Scoping</h4>
+        <p class="text-blue-100/70 text-sm leading-relaxed">Submit your idea. We help you refine the value proposition and identify the target market through expert guidance and market analysis.</p>
+       </div>
+       <div class="card-gradient rounded-2xl p-6">
+        <div class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-blue-500/20 font-bold text-amber-400 mb-4">
+         02
+        </div>
+        <h4 class="font-display text-lg font-bold mb-3">The "MVP" Build</h4>
+        <p class="text-blue-100/70 text-sm leading-relaxed">Access our technical resources to build a Minimum Viable Product. Test, fail fast, and iterate based on real user feedback.</p>
+       </div>
+       <div class="card-gradient rounded-2xl p-6">
+        <div class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-blue-500/20 font-bold text-amber-400 mb-4">
+         03
+        </div>
+        <h4 class="font-display text-lg font-bold mb-3">Mentorship &amp; GTM</h4>
+        <p class="text-blue-100/70 text-sm leading-relaxed">Connect with industry veterans to build a Go-To-Market strategy. Learn from founders who've been there and done that.</p>
+       </div>
+       <div class="card-gradient rounded-2xl p-6">
+        <div class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-blue-500/20 font-bold text-amber-400 mb-4">
+         04
+        </div>
+        <h4 class="font-display text-lg font-bold mb-3">Pitch &amp; Fund</h4>
+        <p class="text-blue-100/70 text-sm leading-relaxed">Showcase your startup at events like Idea Ignition to secure seed funding and investor connections.</p>
+       </div>
+      </div>
+     </div><!-- Value Stack -->
+     <div class="mb-20">
+      <h3 class="font-display text-3xl font-bold mb-12 text-center">Why Join FIC? The <span class="gold-accent">Value Stack</span></h3>
+      <div class="grid md:grid-cols-2 gap-8">
+       <div class="card-gradient rounded-3xl p-8">
+        <div class="w-12 h-12 rounded-2xl bg-blue-500/20 flex items-center justify-center mb-6">
+         <svg class="w-6 h-6 text-blue-400" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+         </svg>
+        </div>
+        <h4 class="font-display text-xl font-bold mb-4">1-on-1 Mentorship</h4>
+        <p class="text-blue-100/70 text-sm mb-4">Regular office hours with founders and subject matter experts in Marketing, Finance, and Operations.</p>
+        <div class="space-y-2">
+         <div class="flex items-start gap-2">
+          <svg class="w-4 h-4 text-green-400 mt-0.5 flex-shrink-0" fill="currentColor" viewbox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+          </svg><span class="text-blue-200/80 text-xs">Expert guidance tailored to your venture</span>
+         </div>
+        </div>
+       </div>
+       <div class="card-gradient rounded-3xl p-8">
+        <div class="w-12 h-12 rounded-2xl bg-purple-500/20 flex items-center justify-center mb-6">
+         <svg class="w-6 h-6 text-purple-400" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
+         </svg>
+        </div>
+        <h4 class="font-display text-xl font-bold mb-4">Infrastructure Support</h4>
+        <p class="text-blue-100/70 text-sm mb-4">High-speed internet, co-working spaces, and meeting rooms for your core team.</p>
+        <div class="space-y-2">
+         <div class="flex items-start gap-2">
+          <svg class="w-4 h-4 text-green-400 mt-0.5 flex-shrink-0" fill="currentColor" viewbox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+          </svg><span class="text-blue-200/80 text-xs">Everything you need to build and test</span>
+         </div>
+        </div>
+       </div>
+       <div class="card-gradient rounded-3xl p-8">
+        <div class="w-12 h-12 rounded-2xl bg-green-500/20 flex items-center justify-center mb-6">
+         <svg class="w-6 h-6 text-green-400" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+         </svg>
+        </div>
+        <h4 class="font-display text-xl font-bold mb-4">Networking Gateway</h4>
+        <p class="text-blue-100/70 text-sm mb-4">Direct access to ecosystem partners including E-Cells at IIT Roorkee, IIT Patna, and the MCRA network.</p>
+        <div class="space-y-2">
+         <div class="flex items-start gap-2">
+          <svg class="w-4 h-4 text-green-400 mt-0.5 flex-shrink-0" fill="currentColor" viewbox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+          </svg><span class="text-blue-200/80 text-xs">Connect with leading entrepreneurs</span>
+         </div>
+        </div>
+       </div>
+       <div class="card-gradient rounded-3xl p-8">
+        <div class="w-12 h-12 rounded-2xl bg-red-500/20 flex items-center justify-center mb-6">
+         <svg class="w-6 h-6 text-red-400" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
+         </svg>
+        </div>
+        <h4 class="font-display text-xl font-bold mb-4">Legal &amp; Compliance</h4>
+        <p class="text-blue-100/70 text-sm mb-4">Guidance on company registration (Private Limited vs. LLP), GST, and Intellectual Property (IPR) filing.</p>
+        <div class="space-y-2">
+         <div class="flex items-start gap-2">
+          <svg class="w-4 h-4 text-green-400 mt-0.5 flex-shrink-0" fill="currentColor" viewbox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+          </svg><span class="text-blue-200/80 text-xs">Navigate legal complexities with ease</span>
+         </div>
+        </div>
+       </div>
+       <div class="card-gradient rounded-3xl p-8">
+        <div class="w-12 h-12 rounded-2xl bg-amber-500/20 flex items-center justify-center mb-6">
+         <svg class="w-6 h-6 text-amber-400" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+         </svg>
+        </div>
+        <h4 class="font-display text-xl font-bold mb-4">Pitch Preparation</h4>
+        <p class="text-blue-100/70 text-sm mb-4">Intensive workshops on storytelling, slide design, and "investor-speak."</p>
+        <div class="space-y-2">
+         <div class="flex items-start gap-2">
+          <svg class="w-4 h-4 text-green-400 mt-0.5 flex-shrink-0" fill="currentColor" viewbox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+          </svg><span class="text-blue-200/80 text-xs">Impress investors and stakeholders</span>
+         </div>
+        </div>
+       </div>
+      </div>
+     </div><!-- FAQ Section -->
+     <div class="mb-20">
+      <h3 class="font-display text-3xl font-bold mb-12 text-center">Frequently Asked <span class="gold-accent">Questions</span></h3>
+      <div class="max-w-3xl mx-auto card-gradient rounded-3xl p-8">
+       <div class="space-y-4">
+        <div class="faq-item">
+         <div class="faq-question" onclick="toggleFaq(this)">
+          <span class="font-semibold text-lg">Who can apply for incubation?</span>
+          <svg class="faq-icon w-5 h-5" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+          </svg>
+         </div>
+         <div class="faq-answer">
+          <p class="text-blue-100/70">Any current student or recent alumnus of Techno India University with a scalable business idea can apply. Your idea can be at any stage—from "napkin sketch" to MVP. We help refine it from there.</p>
+         </div>
+        </div>
+        <div class="faq-item">
+         <div class="faq-question" onclick="toggleFaq(this)">
+          <span class="font-semibold text-lg">Do you take equity in the startup?</span>
+          <svg class="faq-icon w-5 h-5" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+          </svg>
+         </div>
+         <div class="faq-answer">
+          <p class="text-blue-100/70">Our primary goal is educational. Equity requirements depend on the level of funding and resource intensity provided. For most early-stage startups in our program, we don't take equity.</p>
+         </div>
+        </div>
+        <div class="faq-item">
+         <div class="faq-question" onclick="toggleFaq(this)">
+          <span class="font-semibold text-lg">Can I apply with just an idea?</span>
+          <svg class="faq-icon w-5 h-5" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+          </svg>
+         </div>
+         <div class="faq-answer">
+          <p class="text-blue-100/70">Absolutely! Yes, we help move ideas from "paper" to "product." Our ideation and scoping phase is specifically designed to validate and refine your concept before development begins.</p>
+         </div>
+        </div>
+        <div class="faq-item">
+         <div class="faq-question" onclick="toggleFaq(this)">
+          <span class="font-semibold text-lg">How long is the incubation program?</span>
+          <svg class="faq-icon w-5 h-5" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+          </svg>
+         </div>
+         <div class="faq-answer">
+          <p class="text-blue-100/70">The program typically spans 6-12 months, but it's flexible based on your startup's needs and progress. We move at your pace while keeping you accountable to milestones.</p>
+         </div>
+        </div>
+        <div class="faq-item">
+         <div class="faq-question" onclick="toggleFaq(this)">
+          <span class="font-semibold text-lg">Is there funding available?</span>
+          <svg class="faq-icon w-5 h-5" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+          </svg>
+         </div>
+         <div class="faq-answer">
+          <p class="text-blue-100/70">We don't provide direct funding, but we connect you with our network of angel investors, VCs, and grant programs. Successful pitch events often lead to seed funding opportunities.</p>
+         </div>
+        </div>
+       </div>
+      </div>
+     </div><!-- CTA -->
+     <div class="bg-gradient-to-r from-blue-600/20 to-purple-600/20 border border-blue-500/30 rounded-3xl p-12 text-center">
+      <h3 class="font-display text-3xl font-bold mb-4">Ready to Build the <span class="gold-accent">Future?</span></h3>
+      <p class="text-blue-100/70 text-lg mb-8 max-w-2xl mx-auto">Stop waiting for the "perfect time." The best time to start was yesterday; the second best time is now.</p><a href="https://forms.gle/PK7NfpJW74hHxfhi9" target="_blank" rel="noopener noreferrer" class="btn-primary px-8 py-4 rounded-full text-lg font-semibold inline-flex items-center gap-2"> Apply for Incubation 
+       <svg class="w-5 h-5" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+       </svg></a>
+     </div>
+    </div>
+   </section><!-- Events Section -->
+   <section id="events" class="section-dark py-24">
+    <div class="max-w-7xl mx-auto px-6">
+     <div class="text-center mb-16"><span class="text-amber-400 font-semibold text-sm uppercase tracking-widest mb-4 block">Mark Your Calendar</span>
+      <h2 class="font-display text-4xl md:text-5xl font-bold mb-4">Upcoming <span class="gold-accent">Events</span></h2>
+      <p class="text-blue-100/70 text-lg max-w-2xl mx-auto">Don't miss out on opportunities to learn, network, and grow</p>
+     </div>
+     <div class="grid md:grid-cols-2 gap-8 mb-12 max-w-3xl mx-auto"><!-- Event Card 1 -->
+      <div class="card-gradient rounded-3xl overflow-hidden group">
+       <div class="h-48 bg-gradient-to-br from-blue-600 to-blue-800 relative">
+        <div class="absolute inset-0 bg-black/20"></div>
+        <div class="absolute bottom-4 left-4 right-4"><span class="inline-block px-3 py-1 bg-amber-500 text-navy-dark text-xs font-bold rounded-full">FLAGSHIP EVENT</span>
+        </div>
+       </div>
+       <div class="p-6">
+        <div class="flex items-center gap-3 text-blue-300/70 text-sm mb-3">
+         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+         </svg><span>Date to be announced soon</span>
+        </div>
+        <h3 class="font-display text-xl font-bold mb-2">Entrepreneurship Summit 2026</h3>
+        <p class="text-blue-100/60 text-sm mb-4">Two-day flagship event featuring keynotes, panel discussions, and startup showcase.</p><a href="https://forms.gle/PK7NfpJW74hHxfhi9" target="_blank" rel="noopener noreferrer" class="block w-full py-3 rounded-xl bg-blue-500/20 border border-blue-500/30 text-blue-300 font-medium hover:bg-blue-500/30 transition-colors text-center"> Register Now </a>
+       </div>
+      </div><!-- Event Card 2 -->
+      <div class="card-gradient rounded-3xl overflow-hidden group">
+       <div class="h-48 bg-gradient-to-br from-amber-600 to-amber-800 relative">
+        <div class="absolute inset-0 bg-black/20"></div>
+        <div class="absolute bottom-4 left-4 right-4"><span class="inline-block px-3 py-1 bg-white text-navy-dark text-xs font-bold rounded-full">WORKSHOP</span>
+        </div>
+       </div>
+       <div class="p-6">
+        <div class="flex items-center gap-3 text-blue-300/70 text-sm mb-3">
+         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+         </svg><span>Date to be announced soon</span>
+        </div>
+        <h3 class="font-display text-xl font-bold mb-2">Pitch Perfect Workshop</h3>
+        <p class="text-blue-100/60 text-sm mb-4">Master the art of pitching with hands-on practice and expert feedback sessions.</p><a href="https://forms.gle/CGqkKCYrW69WQ7h16" target="_blank" rel="noopener noreferrer" class="block w-full py-3 rounded-xl bg-blue-500/20 border border-blue-500/30 text-blue-300 font-medium hover:bg-blue-500/30 transition-colors text-center"> Register Now </a>
+       </div>
+      </div>
+     </div><!-- View Past Events Button -->
+     <div class="text-center mb-12">
+      <button id="past-events-btn" class="btn-primary px-8 py-4 rounded-full text-lg font-semibold inline-flex items-center gap-2"> View Past Events &amp; Annual Report 
+       <svg class="w-5 h-5" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+       </svg></button>
+     </div>
+    </div>
+   </section><!-- Gallery Section -->
+   <section id="gallery" class="section-gradient py-24 geometric-pattern">
+    <div class="max-w-7xl mx-auto px-6">
+     <div class="text-center mb-16"><span class="text-amber-400 font-semibold text-sm uppercase tracking-widest mb-4 block">Visual Journey</span>
+      <h2 class="font-display text-4xl md:text-5xl font-bold mb-4">Event <span class="gold-accent">Gallery</span></h2>
+      <p class="text-blue-100/70 text-lg max-w-2xl mx-auto">Moments from our events, workshops, and community celebrations</p>
+     </div><!-- Carousel Trains -->
+     <div class="space-y-8 mb-12"><!-- Train 1: Left to Right -->
+      <div class="carousel-container py-4">
+       <div class="carousel-track scroll-left">
+        <div class="carousel-item" onclick="openLightbox(this.querySelector('img').src)">
+         <img src="https://img.sanishtech.com/u/9aece0e638cf73757b4d81e6a42d5c0d.jpg" alt="Event 1" loading="lazy" onerror="console.error('Image failed to load:', this.src); this.style.background='#0f2447'; this.alt='Image unavailable';">
+        </div>
+        <div class="carousel-item" onclick="openLightbox(this.querySelector('img').src)">
+         <img src="https://img.sanishtech.com/u/6170f52be413d7c8adee0f2c564f4498.jpg" alt="Event 2" loading="lazy" onerror="console.error('Image failed to load:', this.src); this.style.background='#0f2447'; this.alt='Image unavailable';">
+        </div>
+        <div class="carousel-item" onclick="openLightbox(this.querySelector('img').src)">
+         <img src="https://img.sanishtech.com/u/80aee6f520e7c876713fdcb9428af164.jpg" alt="Event 3" loading="lazy" onerror="console.error('Image failed to load:', this.src); this.style.background='#0f2447'; this.alt='Image unavailable';">
+        </div>
+        <div class="carousel-item" onclick="openLightbox(this.querySelector('img').src)">
+         <img src="https://img.sanishtech.com/u/9fe94409bc4482e6510b4268d2fbcbc0.jpg" alt="Event 4" loading="lazy" onerror="console.error('Image failed to load:', this.src); this.style.background='#0f2447'; this.alt='Image unavailable';">
+        </div>
+        <div class="carousel-item" onclick="openLightbox(this.querySelector('img').src)">
+         <img src="https://img.sanishtech.com/u/86593420b56dfc4c1e470d10ec58dd7d.jpg" alt="Event 5" loading="lazy" onerror="console.error('Image failed to load:', this.src); this.style.background='#0f2447'; this.alt='Image unavailable';">
+        </div>
+        <div class="carousel-item" onclick="openLightbox(this.querySelector('img').src)">
+         <img src="https://img.sanishtech.com/u/36b3c2fa130fbef675c610fd34eaaec0.jpg" alt="Event 6" loading="lazy" onerror="console.error('Image failed to load:', this.src); this.style.background='#0f2447'; this.alt='Image unavailable';">
+        </div>
+        <div class="carousel-item" onclick="openLightbox(this.querySelector('img').src)">
+         <img src="https://img.sanishtech.com/u/1d2d2f6021280bc5279134bd72272235.jpg" alt="Event 7" loading="lazy" onerror="console.error('Image failed to load:', this.src); this.style.background='#0f2447'; this.alt='Image unavailable';">
+        </div>
+        <div class="carousel-item" onclick="openLightbox(this.querySelector('img').src)">
+         <img src="https://img.sanishtech.com/u/4c5be7cbfecf9e7c514b0ac9fb8a9859.jpg" alt="Event 8" loading="lazy" onerror="console.error('Image failed to load:', this.src); this.style.background='#0f2447'; this.alt='Image unavailable';">
+        </div>
+        <div class="carousel-item" onclick="openLightbox(this.querySelector('img').src)">
+         <img src="https://img.sanishtech.com/u/8d53f550684694e3b9e07231f61e3963.jpg" alt="Event 9" loading="lazy" onerror="console.error('Image failed to load:', this.src); this.style.background='#0f2447'; this.alt='Image unavailable';">
+        </div>
+        <div class="carousel-item" onclick="openLightbox(this.querySelector('img').src)">
+         <img src="https://img.sanishtech.com/u/3e401f2044e3d8391bc3060678b5c415.jpg" alt="Event 10" loading="lazy" onerror="console.error('Image failed to load:', this.src); this.style.background='#0f2447'; this.alt='Image unavailable';">
+        </div><!-- Duplicate for infinite loop -->
+        <div class="carousel-item" onclick="openLightbox(this.querySelector('img').src)">
+         <img src="https://img.sanishtech.com/u/9aece0e638cf73757b4d81e6a42d5c0d.jpg" alt="Event 1" loading="lazy" onerror="console.error('Image failed to load:', this.src); this.style.background='#0f2447'; this.alt='Image unavailable';">
+        </div>
+        <div class="carousel-item" onclick="openLightbox(this.querySelector('img').src)">
+         <img src="https://img.sanishtech.com/u/6170f52be413d7c8adee0f2c564f4498.jpg" alt="Event 2" loading="lazy" onerror="console.error('Image failed to load:', this.src); this.style.background='#0f2447'; this.alt='Image unavailable';">
+        </div>
+        <div class="carousel-item" onclick="openLightbox(this.querySelector('img').src)">
+         <img src="https://img.sanishtech.com/u/80aee6f520e7c876713fdcb9428af164.jpg" alt="Event 3" loading="lazy" onerror="console.error('Image failed to load:', this.src); this.style.background='#0f2447'; this.alt='Image unavailable';">
+        </div>
+        <div class="carousel-item" onclick="openLightbox(this.querySelector('img').src)">
+         <img src="https://img.sanishtech.com/u/9fe94409bc4482e6510b4268d2fbcbc0.jpg" alt="Event 4" loading="lazy" onerror="console.error('Image failed to load:', this.src); this.style.background='#0f2447'; this.alt='Image unavailable';">
+        </div>
+        <div class="carousel-item" onclick="openLightbox(this.querySelector('img').src)">
+         <img src="https://img.sanishtech.com/u/86593420b56dfc4c1e470d10ec58dd7d.jpg" alt="Event 5" loading="lazy" onerror="console.error('Image failed to load:', this.src); this.style.background='#0f2447'; this.alt='Image unavailable';">
+        </div>
+       </div>
+      </div><!-- Train 2: Right to Left -->
+      <div class="carousel-container py-4">
+       <div class="carousel-track scroll-right">
+        <div class="carousel-item" onclick="openLightbox(this.querySelector('img').src)">
+         <img src="https://img.sanishtech.com/u/57b6301aff6787f012f82d3da3293e4a.jpg" alt="Event 11" loading="lazy" onerror="console.error('Image failed to load:', this.src); this.style.background='#0f2447'; this.alt='Image unavailable';">
+        </div>
+        <div class="carousel-item" onclick="openLightbox(this.querySelector('img').src)">
+         <img src="https://img.sanishtech.com/u/79d9db2f02d44caf606151f422d7dd76.jpg" alt="Event 12" loading="lazy" onerror="console.error('Image failed to load:', this.src); this.style.background='#0f2447'; this.alt='Image unavailable';">
+        </div>
+        <div class="carousel-item" onclick="openLightbox(this.querySelector('img').src)">
+         <img src="https://img.sanishtech.com/u/8b8ef7fff0474db2ab9450209558fa95.jpg" alt="Event 13" loading="lazy" onerror="console.error('Image failed to load:', this.src); this.style.background='#0f2447'; this.alt='Image unavailable';">
+        </div>
+        <div class="carousel-item" onclick="openLightbox(this.querySelector('img').src)">
+         <img src="https://img.sanishtech.com/u/044ebfe0712feb890ddf8fff7a1991e6.jpg" alt="Event 14" loading="lazy" onerror="console.error('Image failed to load:', this.src); this.style.background='#0f2447'; this.alt='Image unavailable';">
+        </div>
+        <div class="carousel-item" onclick="openLightbox(this.querySelector('img').src)">
+         <img src="https://img.sanishtech.com/u/ef71361d4b7e78b1342d337c28c53fe4.jpg" alt="Event 15" loading="lazy" onerror="console.error('Image failed to load:', this.src); this.style.background='#0f2447'; this.alt='Image unavailable';">
+        </div>
+        <div class="carousel-item" onclick="openLightbox(this.querySelector('img').src)">
+         <img src="https://img.sanishtech.com/u/580740f382732832868f599c0402592c.jpg" alt="Event 16" loading="lazy" onerror="console.error('Image failed to load:', this.src); this.style.background='#0f2447'; this.alt='Image unavailable';">
+        </div>
+        <div class="carousel-item" onclick="openLightbox(this.querySelector('img').src)">
+         <img src="https://img.sanishtech.com/u/5a04a5c7863be5a.jpg" alt="Event 17" loading="lazy" onerror="console.error('Image failed to load:', this.src); this.style.background='#0f2447'; this.alt='Image unavailable';">
+        </div>
+        <div class="carousel-item" onclick="openLightbox(this.querySelector('img').src)">
+         <img src="https://img.sanishtech.com/u/5b0266482532d18d78c164ca3382106b.jpg" alt="Event 18" loading="lazy" onerror="console.error('Image failed to load:', this.src); this.style.background='#0f2447'; this.alt='Image unavailable';">
+        </div>
+        <div class="carousel-item" onclick="openLightbox(this.querySelector('img').src)">
+         <img src="https://img.sanishtech.com/u/e03a02f0e661ce083215768bc86892bb.jpg" alt="Event 19" loading="lazy" onerror="console.error('Image failed to load:', this.src); this.style.background='#0f2447'; this.alt='Image unavailable';">
+        </div>
+        <div class="carousel-item" onclick="openLightbox(this.querySelector('img').src)">
+         <img src="https://img.sanishtech.com/u/cabc4dd61418ac91ade7601b06dc50d6.jpg" alt="Event 20" loading="lazy" onerror="console.error('Image failed to load:', this.src); this.style.background='#0f2447'; this.alt='Image unavailable';">
+        </div><!-- Duplicate for infinite loop -->
+        <div class="carousel-item" onclick="openLightbox(this.querySelector('img').src)">
+         <img src="https://img.sanishtech.com/u/57b6301aff6787f012f82d3da3293e4a.jpg" alt="Event 11" loading="lazy" onerror="console.error('Image failed to load:', this.src); this.style.background='#0f2447'; this.alt='Image unavailable';">
+        </div>
+        <div class="carousel-item" onclick="openLightbox(this.querySelector('img').src)">
+         <img src="https://img.sanishtech.com/u/79d9db2f02d44caf606151f422d7dd76.jpg" alt="Event 12" loading="lazy" onerror="console.error('Image failed to load:', this.src); this.style.background='#0f2447'; this.alt='Image unavailable';">
+        </div>
+        <div class="carousel-item" onclick="openLightbox(this.querySelector('img').src)">
+         <img src="https://img.sanishtech.com/u/8b8ef7fff0474db2ab9450209558fa95.jpg" alt="Event 13" loading="lazy" onerror="console.error('Image failed to load:', this.src); this.style.background='#0f2447'; this.alt='Image unavailable';">
+        </div>
+        <div class="carousel-item" onclick="openLightbox(this.querySelector('img').src)">
+         <img src="https://img.sanishtech.com/u/044ebfe0712feb890ddf8fff7a1991e6.jpg" alt="Event 14" loading="lazy" onerror="console.error('Image failed to load:', this.src); this.style.background='#0f2447'; this.alt='Image unavailable';">
+        </div>
+        <div class="carousel-item" onclick="openLightbox(this.querySelector('img').src)">
+         <img src="https://img.sanishtech.com/u/ef71361d4b7e78b1342d337c28c53fe4.jpg" alt="Event 15" loading="lazy" onerror="console.error('Image failed to load:', this.src); this.style.background='#0f2447'; this.alt='Image unavailable';">
+        </div>
+       </div>
+      </div>
+     </div><!-- View All Button -->
+     <div class="text-center">
+      <button id="view-all-gallery-btn" class="btn-primary px-8 py-4 rounded-full text-lg font-semibold inline-flex items-center gap-2"> View All Gallery 
+       <svg class="w-5 h-5" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6a2 2 0 012-2h12a2 2 0 012 2v12a2 2 0 01-2 2H6a2 2 0 01-2-2V6z" />
+       </svg></button>
+     </div>
+    </div>
+   </section><!-- Seek Support Section -->
+   <section id="seek-support" class="section-gradient py-24 geometric-pattern">
+    <div class="max-w-7xl mx-auto px-6">
+     <div class="text-center mb-16"><span class="text-amber-400 font-semibold text-sm uppercase tracking-widest mb-4 block">We're Here To Help</span>
+      <h2 class="font-display text-4xl md:text-5xl font-bold mb-4">Seek <span class="gold-accent">Support</span></h2>
+      <p class="text-blue-100/70 text-lg max-w-3xl mx-auto">Whether you're at ideation or scaling, we offer comprehensive support tailored to your journey</p>
+     </div>
+     <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div class="card-gradient rounded-3xl p-8 hover:border-blue-400/40 transition-all group">
+       <div class="w-14 h-14 rounded-2xl bg-blue-500/20 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+        <svg class="w-7 h-7 text-blue-400" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0114 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+        </svg>
+       </div>
+       <h3 class="font-display text-2xl font-bold mb-3">Idea Validation</h3>
+       <p class="text-blue-100/60 leading-relaxed">Get expert feedback on your business idea with market fit analysis and audience identification.</p>
+      </div>
+      <div class="card-gradient rounded-3xl p-8 hover:border-blue-400/40 transition-all group">
+       <div class="w-14 h-14 rounded-2xl bg-green-500/20 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+        <svg class="w-7 h-7 text-green-400" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
+        </svg>
+       </div>
+       <h3 class="font-display text-2xl font-bold mb-3">MVP Development</h3>
+       <p class="text-blue-100/60 leading-relaxed">From concept to prototype with technical resources, guidance, and mentorship.</p>
+      </div>
+      <div class="card-gradient rounded-3xl p-8 hover:border-blue-400/40 transition-all group">
+       <div class="w-14 h-14 rounded-2xl bg-purple-500/20 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+        <svg class="w-7 h-7 text-purple-400" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+        </svg>
+       </div>
+       <h3 class="font-display text-2xl font-bold mb-3">Mentorship</h3>
+       <p class="text-blue-100/60 leading-relaxed">Connect with seasoned entrepreneurs and industry experts for personalized guidance.</p>
+      </div>
+      <div class="card-gradient rounded-3xl p-8 hover:border-blue-400/40 transition-all group">
+       <div class="w-14 h-14 rounded-2xl bg-red-500/20 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+        <svg class="w-7 h-7 text-red-400" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+        </svg>
+       </div>
+       <h3 class="font-display text-2xl font-bold mb-3">Fundraising Support</h3>
+       <p class="text-blue-100/60 leading-relaxed">Learn strategies, connect with investors, and prepare compelling investor pitches.</p>
+      </div>
+      <div class="card-gradient rounded-3xl p-8 hover:border-blue-400/40 transition-all group">
+       <div class="w-14 h-14 rounded-2xl bg-cyan-500/20 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+        <svg class="w-7 h-7 text-cyan-400" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+        </svg>
+       </div>
+       <h3 class="font-display text-2xl font-bold mb-3">Networking Events</h3>
+       <p class="text-blue-100/60 leading-relaxed">Connect with entrepreneurs, investors, and industry leaders for meaningful relationships.</p>
+      </div>
+     </div>
+     <div class="mt-16 text-center"><a href="#contact" class="btn-primary px-8 py-4 rounded-full text-lg font-semibold inline-flex items-center gap-2">Get In Touch Today 
+       <svg class="w-5 h-5" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+       </svg></a>
+     </div>
+    </div>
+   </section><!-- Sponsors Section -->
+   <section id="sponsors" class="section-dark py-24">
+    <div class="max-w-7xl mx-auto px-6 text-center"><span class="text-amber-400 font-semibold text-sm uppercase tracking-widest mb-4 block">Partnership Opportunities</span>
+     <h2 class="font-display text-4xl md:text-5xl font-bold mb-6">Partner With <span class="gold-accent">Futurepreneurs</span></h2>
+     <p class="text-blue-100/70 text-lg max-w-2xl mx-auto mb-12">Be part of our mission to nurture the next generation of entrepreneurs and innovators</p><button id="sponsors-section-btn" class="btn-primary px-8 py-4 rounded-full text-lg font-semibold inline-flex items-center gap-2"> Explore Sponsorship Options 
+      <svg class="w-5 h-5" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+      </svg></button>
+    </div><!-- Team Section -->
+    <section id="team" class="section-dark py-24">
+     <div class="max-w-7xl mx-auto px-6">
+      <div class="text-center mb-16"><span class="text-amber-400 font-semibold text-sm uppercase tracking-widest mb-4 block">The People Behind</span>
+       <h2 class="font-display text-4xl md:text-5xl font-bold mb-4">Our <span class="gold-accent">Core Team</span></h2>
+       <p class="text-blue-100/70 text-lg max-w-2xl mx-auto">Meet the passionate individuals driving the entrepreneurial movement</p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8"><a href="https://www.linkedin.com/in/teyasa-jana-4b0337281?utm_source=share_via&amp;utm_content=profile&amp;utm_medium=member_android" target="_blank" rel="noopener noreferrer" class="card-gradient rounded-3xl p-6 text-center hover:border-blue-400/40 transition-all group">
+        <div class="w-24 h-24 mx-auto mb-6 rounded-2xl overflow-hidden bg-blue-700 flex items-center justify-center group-hover:scale-110 transition-transform">
+         <img src="https://img.sanishtech.com/u/176f553f6ba629db8311ccad3e81395a.jpg" alt="President" loading="lazy" onerror="this.parentElement.style.background='#1e40af';">
+        </div><h4 class="font-display text-xl font-bold mb-1">President</h4><p class="text-amber-400 text-sm font-semibold mb-3">Leadership</p><p class="text-blue-100/60 text-sm">Steering vision and direction</p></a> <a href="https://www.linkedin.com/in/tanay-kedia-b84272296" target="_blank" rel="noopener noreferrer" class="card-gradient rounded-3xl p-6 text-center hover:border-blue-400/40 transition-all group">
+        <div class="w-24 h-24 mx-auto mb-6 rounded-2xl overflow-hidden bg-amber-700 flex items-center justify-center group-hover:scale-110 transition-transform">
+         <img src="https://img.sanishtech.com/u/69ae8be3d0ae4a3ef451dd8dbc46f24c.jpg" alt="Secretary" loading="lazy" onerror="this.parentElement.style.background='#b45309';">
+        </div><h4 class="font-display text-xl font-bold mb-1">Secretary</h4><p class="text-amber-400 text-sm font-semibold mb-3">Administration</p><p class="text-blue-100/60 text-sm">Managing operations</p></a>
+       <div class="card-gradient rounded-3xl p-6 text-center hover:border-blue-400/40 transition-all group">
+        <div class="w-24 h-24 mx-auto mb-6 rounded-2xl overflow-hidden bg-green-700 flex items-center justify-center group-hover:scale-110 transition-transform">
+         <img src="https://img.sanishtech.com/u/93fbad6fdb68d9fd73ab73ce28b9e991.jpg" alt="Operations Head" loading="lazy" onerror="this.parentElement.style.background='#15803d';">
+        </div>
+        <h4 class="font-display text-xl font-bold mb-1">Operations Head</h4>
+        <p class="text-amber-400 text-sm font-semibold mb-3">Operations</p>
+        <p class="text-blue-100/60 text-sm">Ensuring smooth execution</p>
+       </div>
+       <div class="card-gradient rounded-3xl p-6 text-center hover:border-blue-400/40 transition-all group">
+        <div class="w-24 h-24 mx-auto mb-6 rounded-2xl overflow-hidden bg-red-700 flex items-center justify-center group-hover:scale-110 transition-transform">
+         <img src="https://img.sanishtech.com/u/b099278c9e3938bbf0ce2eda374c5da9.jpg" alt="Events Head" loading="lazy" onerror="this.parentElement.style.background='#b91c1c';">
+        </div>
+        <h4 class="font-display text-xl font-bold mb-1">Events Head</h4>
+        <p class="text-amber-400 text-sm font-semibold mb-3">Events</p>
+        <p class="text-blue-100/60 text-sm">Creating experiences</p>
+       </div>
+       <div class="card-gradient rounded-3xl p-6 text-center hover:border-blue-400/40 transition-all group">
+        <div class="w-24 h-24 mx-auto mb-6 rounded-2xl overflow-hidden bg-purple-700 flex items-center justify-center group-hover:scale-110 transition-transform">
+         <img src="https://img.sanishtech.com/u/fdb16ff70afc95773652857f641f97b4.jpg" alt="PR Head" loading="lazy" onerror="this.parentElement.style.background='#6b21a8';">
+        </div>
+        <h4 class="font-display text-xl font-bold mb-1">PR Head</h4>
+        <p class="text-amber-400 text-sm font-semibold mb-3">Communications</p>
+        <p class="text-blue-100/60 text-sm">Building connections</p>
+       </div>
+      </div>
+     </div>
+    </section><!-- Contact Section -->
+    <section id="contact" class="section-dark py-24">
+     <div class="max-w-4xl mx-auto px-6">
+      <div class="text-center mb-12"><span class="text-amber-400 font-semibold text-sm uppercase tracking-widest mb-4 block">Get In Touch</span>
+       <h2 class="font-display text-4xl md:text-5xl font-bold mb-4">Ready to <span class="gold-accent">Start Your Journey?</span></h2>
+       <p class="text-blue-100/70 text-lg">Have an idea? Want incubation support? Let's build something amazing together!</p>
+      </div>
+      <div class="card-gradient rounded-3xl p-8 md:p-12">
+       <form id="contact-form" class="space-y-6" onsubmit="handleContactForm(event)">
+        <div class="grid md:grid-cols-2 gap-6">
+         <div><label for="name" class="block text-sm font-medium text-blue-200 mb-2">Your Name</label> <input type="text" id="name" name="name" required class="w-full px-4 py-3 rounded-xl bg-navy-dark/50 border border-blue-500/20 text-white placeholder-blue-300/40 focus:border-blue-400 focus:outline-none transition-colors">
+         </div>
+         <div><label for="email" class="block text-sm font-medium text-blue-200 mb-2">Email Address</label> <input type="email" id="email" name="email" required class="w-full px-4 py-3 rounded-xl bg-navy-dark/50 border border-blue-500/20 text-white placeholder-blue-300/40 focus:border-blue-400 focus:outline-none transition-colors">
+         </div>
+        </div>
+        <div><label for="subject" class="block text-sm font-medium text-blue-200 mb-2">Subject</label> <select id="subject" name="subject" required class="w-full px-4 py-3 rounded-xl bg-navy-dark/50 border border-blue-500/20 text-white focus:border-blue-400 focus:outline-none transition-colors"> <option value="">Select a subject...</option> <option value="incubation">Seek Incubation Support</option> <option value="idea">Submit an Idea</option> <option value="partnership">Partnership Inquiry</option> <option value="general">General Query</option> </select>
+        </div>
+        <div><label for="message" class="block text-sm font-medium text-blue-200 mb-2">Your Message</label> <textarea id="message" name="message" rows="4" required class="w-full px-4 py-3 rounded-xl bg-navy-dark/50 border border-blue-500/20 placeholder-blue-300/40 focus:border-blue-400 focus:outline-none transition-colors resize-none" style="color: #e0e7ff;"></textarea>
+        </div><button type="submit" id="submit-btn" class="w-full btn-primary py-4 rounded-xl text-lg font-semibold flex items-center justify-center gap-2"> <span id="submit-text">Send Message</span>
+         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
+         </svg></button>
+       </form>
+       <div id="form-success" class="hidden text-center py-8">
+        <div class="w-16 h-16 mx-auto mb-4 rounded-full bg-green-500/20 flex items-center justify-center">
+         <svg class="w-8 h-8 text-green-400" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+         </svg>
+        </div>
+        <h3 class="font-display text-2xl font-bold mb-2">Message Sent!</h3>
+        <p class="text-blue-100/70">Thank you for reaching out. We'll get back to you soon.</p>
+       </div>
+      </div>
+      <div class="flex justify-center items-center gap-6 mt-12 flex-wrap"><a href="https://www.instagram.com/ecell.tiu?igsh=MWVzZm5hbzJsNjl0dw==" target="_blank" rel="noopener noreferrer" class="w-12 h-12 rounded-xl bg-blue-500/10 border border-blue-500/20 flex items-center justify-center text-blue-300 hover:bg-blue-500/20 hover:text-white transition-all">
+        <svg class="w-5 h-5" fill="currentColor" viewbox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+        </svg></a> <a href="https://www.linkedin.com/company/ecelltiu/" target="_blank" rel="noopener noreferrer" class="w-12 h-12 rounded-xl bg-blue-500/10 border border-blue-500/20 flex items-center justify-center text-blue-300 hover:bg-blue-500/20 hover:text-white transition-all">
+        <svg class="w-5 h-5" fill="currentColor" viewbox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+        </svg></a> <a href="mailto:teamfuturepreneurs.ecell@gmail.com" class="w-12 h-12 rounded-xl bg-blue-500/10 border border-blue-500/20 flex items-center justify-center text-blue-300 hover:bg-blue-500/20 hover:text-white transition-all">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+        </svg></a>
+      </div>
+     </div>
+    </section><!-- Footer -->
+    <footer class="bg-navy-dark/80 border-t border-blue-500/10 py-8">
+     <div class="max-w-7xl mx-auto px-6">
+      <div class="flex flex-col md:flex-row items-center justify-between gap-4">
+       <div class="flex items-center gap-3"><img src="https://i.ibb.co/xSDp322g/IMG-20260216-WA0020.jpg" alt="Futurepreneurs Logo" class="w-8 h-8 rounded-lg object-cover" loading="lazy">
+        <div><span class="font-display font-bold text-white">Futurepreneurs</span> <span class="block text-xs text-amber-400">E-Cell • TIU</span>
+        </div>
+       </div>
+       <p id="footer-text" class="text-blue-300/60 text-sm text-center">© 2025 Futurepreneurs E-Cell | Department of Management, Techno India University</p>
+       <div class="flex items-center gap-4 text-blue-300/60 text-sm"><a href="#" class="hover:text-white transition-colors">Privacy</a> <a href="#" class="hover:text-white transition-colors">Terms</a>
+       </div>
+      </div>
+     </div>
+    </footer><!-- Sponsor Modal -->
+    <div id="sponsor-modal" class="fixed inset-0 z-50 hidden modal-backdrop flex items-center justify-center p-4 overflow-y-auto">
+     <div class="card-gradient rounded-3xl w-full max-w-5xl p-8 md:p-12 relative modal-content"><button id="modal-close-btn" class="absolute top-6 right-6 p-2 hover:bg-blue-500/20 rounded-full transition-colors z-10">
+       <svg class="w-6 h-6 text-blue-300" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+       </svg></button>
+      <div>
+       <h2 class="font-display text-4xl font-bold mb-8">Sponsorship <span class="gold-accent">Opportunities</span></h2>
+       <p class="text-blue-100/70 text-lg mb-12 leading-relaxed">Join Futurepreneurs in empowering the next generation of entrepreneurs. Whether you want to build brand presence, establish industry connections, or contribute to the entrepreneurial ecosystem, we have partnership opportunities tailored for you.</p>
+       <div class="grid md:grid-cols-3 gap-8 mb-16">
+        <div class="card-gradient rounded-3xl p-8 hover:border-blue-400/40 transition-all">
+         <div class="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-amber-500/20 mb-6">
+          <svg class="w-6 h-6 text-amber-400" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+          </svg>
+         </div>
+         <h3 class="font-display text-2xl font-bold mb-2">Title Partner</h3>
+         <p class="text-blue-100/60 text-sm mb-6">Premium branding and visibility with event naming rights</p>
+         <ul class="space-y-2 text-sm">
+          <li class="flex items-center gap-2 text-blue-200">
+           <svg class="w-4 h-4 text-green-400" fill="currentColor" viewbox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+           </svg><span>Event naming &amp; branding</span></li>
+         </ul>
+        </div>
+        <div class="card-gradient rounded-3xl p-8 hover:border-blue-400/40 transition-all">
+         <div class="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-purple-500/20 mb-6">
+          <svg class="w-6 h-6 text-purple-400" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+          </svg>
+         </div>
+         <h3 class="font-display text-2xl font-bold mb-2">Logistics Partner</h3>
+         <p class="text-blue-100/60 text-sm mb-6">Essential support for event execution</p>
+         <ul class="space-y-2 text-sm">
+          <li class="flex items-center gap-2 text-blue-200">
+           <svg class="w-4 h-4 text-green-400" fill="currentColor" viewbox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+           </svg><span>Operational support</span></li>
+         </ul>
+        </div>
+        <div class="card-gradient rounded-3xl p-8 hover:border-blue-400/40 transition-all">
+         <div class="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-red-500/20 mb-6">
+          <svg class="w-6 h-6 text-red-400" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m0 0h6" />
+          </svg>
+         </div>
+         <h3 class="font-display text-2xl font-bold mb-2">Food Partner</h3>
+         <p class="text-blue-100/60 text-sm mb-6">Provide catering while building brand presence</p>
+         <ul class="space-y-2 text-sm">
+          <li class="flex items-center gap-2 text-blue-200">
+           <svg class="w-4 h-4 text-green-400" fill="currentColor" viewbox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+           </svg><span>Branded catering service</span></li>
+         </ul>
+        </div>
+       </div>
+       <div class="bg-navy-dark/50 rounded-2xl p-6 border border-blue-500/10">
+        <h3 class="font-semibold text-xl mb-4 flex items-center gap-2">
+         <svg class="w-5 h-5 text-amber-400" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+         </svg> Get in Touch</h3>
+        <div class="space-y-2 text-sm">
+         <p class="text-blue-200">Email: <a href="mailto:teamfuturepreneurs.ecell@gmail.com" class="text-amber-400 hover:text-amber-300">teamfuturepreneurs.ecell@gmail.com</a></p>
+         <p class="text-blue-200">Phone: <a href="tel:+918100270483" class="text-amber-400 hover:text-amber-300">+91 81002 70483</a></p>
+        </div>
+       </div>
+      </div>
+     </div>
+    </div><!-- Past Events Modal -->
+    <div id="past-events-modal" class="fixed inset-0 z-50 hidden modal-backdrop flex items-center justify-center p-4 overflow-y-auto">
+     <div class="card-gradient rounded-3xl w-full max-w-4xl p-8 md:p-12 relative modal-content"><button id="past-events-close-btn" class="absolute top-6 right-6 p-2 hover:bg-blue-500/20 rounded-full transition-colors z-10">
+       <svg class="w-6 h-6 text-blue-300" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+       </svg></button>
+      <div>
+       <div class="mb-12"><span class="text-amber-400 font-semibold text-sm uppercase tracking-widest mb-4 block">Our Journey</span>
+        <h2 class="font-display text-4xl font-bold mb-4">Futurepreneurs E-Cell: <span class="gold-accent">Annual Report 2025</span></h2>
+        <p class="text-blue-100/70 text-lg">A comprehensive record of entrepreneurial initiatives and events throughout the 2025 academic session.</p>
+       </div>
+       <div class="space-y-6"><!-- Event 1 -->
+        <div class="bg-navy-dark/40 rounded-2xl p-6 border border-blue-500/10">
+         <div class="flex items-start justify-between mb-3">
+          <div>
+           <h3 class="font-display text-xl font-bold">Idea Ignition 1.0</h3>
+           <p class="text-amber-400 font-semibold text-sm mt-1">Battle of Business Pitches</p>
+          </div><span class="px-3 py-1 bg-blue-500/20 border border-blue-500/30 rounded-full text-xs font-semibold text-blue-300 whitespace-nowrap">Aug 21, 2025</span>
+         </div>
+         <p class="text-blue-100/70 text-sm mb-2">Inter-Collegiate Business Pitch Competition powered by Eureka!, IIT Bombay. Participants pitched ideas in 3+1 minute windows followed by 2-minute Q&amp;A sessions with industry experts from 3S Travel Network and Mikata Consulting. Judged on innovation, feasibility, market potential, and presentation clarity.</p>
+         <p class="text-blue-300/60 text-xs">Impact: Motivated students to transition from "job seekers" to "job creators" mindset.</p>
+        </div><!-- Event 2 -->
+        <div class="bg-navy-dark/40 rounded-2xl p-6 border border-blue-500/10">
+         <div class="flex items-start justify-between mb-3">
+          <div>
+           <h3 class="font-display text-xl font-bold">Vision Vault</h3>
+           <p class="text-amber-400 font-semibold text-sm mt-1">Online Social Media Challenge</p>
+          </div><span class="px-3 py-1 bg-green-500/20 border border-green-500/30 rounded-full text-xs font-semibold text-green-300 whitespace-nowrap">Sep 7-9, 2025</span>
+         </div>
+         <p class="text-blue-100/70 text-sm mb-2">High-engagement digital pitching competition centered on "One Minute. One Reel. One Big Idea." Participants conceptualized scalable business ideas within finite budget constraints using the hashtag #PitchItWithFuturepreneurs.</p>
+         <p class="text-blue-300/60 text-xs">Impact: Trained students in concise communication, digital pitching, and financial feasibility evaluation with extensive social media reach.</p>
+        </div><!-- Event 3 -->
+        <div class="bg-navy-dark/40 rounded-2xl p-6 border border-blue-500/10">
+         <div class="flex items-start justify-between mb-3">
+          <div>
+           <h3 class="font-display text-xl font-bold">Soch Samvaad</h3>
+           <p class="text-amber-400 font-semibold text-sm mt-1">Reimagining the Entrepreneurial Ecosystem</p>
+          </div><span class="px-3 py-1 bg-purple-500/20 border border-purple-500/30 rounded-full text-xs font-semibold text-purple-300 whitespace-nowrap">Sep 11, 2025</span>
+         </div>
+         <p class="text-blue-100/70 text-sm mb-2">Entrepreneurial group discussion addressing three core pillars: Freelancing as a Career, Problem-Solving vs. Funding, and Frugal Innovation. Focused on institutional support for alternative career paths and problem-first ideation.</p>
+         <p class="text-blue-300/60 text-xs">Strategic Outcome: Resolved to advocate for institutional recognition of freelancing and mentor startups with focus on social relevance.</p>
+        </div><!-- Event 4 -->
+        <div class="bg-navy-dark/40 rounded-2xl p-6 border border-blue-500/10">
+         <div class="flex items-start justify-between mb-3">
+          <div>
+           <h3 class="font-display text-xl font-bold">Illuminate Unveiled 2025</h3>
+           <p class="text-amber-400 font-semibold text-sm mt-1">Entrepreneurship Workshop</p>
+          </div><span class="px-3 py-1 bg-amber-500/20 border border-amber-500/30 rounded-full text-xs font-semibold text-amber-300 whitespace-nowrap">Oct 11, 2025</span>
+         </div>
+         <p class="text-blue-100/70 text-sm mb-2">Exclusive workshop in collaboration with E-Cell IIT Bombay featuring keynote speaker Dr. Rohini Sharma on innovation mindsets, business model design, and startup growth strategies. Interactive brainstorming and prototyping sessions included.</p>
+         <p class="text-blue-300/60 text-xs">Recognition: Futurepreneurs recognized among Top 100 colleges nationwide by IIT Bombay. Vision: Entrepreneurship as meaningful change through courage and collaboration.</p>
+        </div><!-- Event 5 -->
+        <div class="bg-navy-dark/40 rounded-2xl p-6 border border-blue-500/10">
+         <div class="flex items-start justify-between mb-3">
+          <div>
+           <h3 class="font-display text-xl font-bold">Zenith Launchpad 2025</h3>
+           <p class="text-amber-400 font-semibold text-sm mt-1">Professional Conclave</p>
+          </div><span class="px-3 py-1 bg-red-500/20 border border-red-500/30 rounded-full text-xs font-semibold text-red-300 whitespace-nowrap">Nov 22, 2025</span>
+         </div>
+         <p class="text-blue-100/70 text-sm mb-2">Premier bridge between academic learning and startup ecosystem with 13 diverse industry leaders. Inaugural address by Prof. (Dr.) Samiran Chattopadhyay on resilience and innovation. Speakers shared "Journey Chronicles" from food ventures, nursery management, and brand development. Exclusive in-depth interview with Mr. Sunando Banerjee on business leadership and operational excellence.</p>
+         <p class="text-blue-300/60 text-xs">Impact: Grassroots insights from industry leaders and emphasis on practical, real-world business acumen.</p>
+        </div>
+       </div><!-- Summary Stats -->
+       <div class="mt-12 pt-8 border-t border-blue-500/10">
+        <h3 class="font-display text-2xl font-bold mb-6">2025 Academic Session Summary</h3>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+         <div class="bg-blue-500/10 rounded-xl p-4 text-center">
+          <div class="font-display text-3xl font-bold text-blue-300 mb-1">
+           5
+          </div>
+          <p class="text-blue-200/70 text-sm">Major Events</p>
+         </div>
+         <div class="bg-green-500/10 rounded-xl p-4 text-center">
+          <div class="font-display text-3xl font-bold text-green-300 mb-1">
+           13+
+          </div>
+          <p class="text-blue-200/70 text-sm">Industry Speakers</p>
+         </div>
+         <div class="bg-purple-500/10 rounded-xl p-4 text-center">
+          <div class="font-display text-3xl font-bold text-purple-300 mb-1">
+           100
+          </div>
+          <p class="text-blue-200/70 text-sm">Top Colleges Rank</p>
+         </div>
+         <div class="bg-amber-500/10 rounded-xl p-4 text-center">
+          <div class="font-display text-3xl font-bold text-amber-300 mb-1">
+           500+
+          </div>
+          <p class="text-blue-200/70 text-sm">Students Engaged</p>
+         </div>
+        </div>
+       </div>
+      </div>
+     </div>
+    </div><!-- Lightbox -->
+    <div id="lightbox" class="gallery-lightbox">
+     <div class="lightbox-content">
+      <button class="lightbox-close" onclick="closeLightbox()">
+       <svg class="w-6 h-6" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+       </svg></button>
+      <div class="lightbox-nav">
+       <button onclick="previousLightbox()" title="Previous">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+        </svg></button> <button onclick="nextLightbox()" title="Next">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+        </svg></button>
+      </div><img id="lightbox-image" class="lightbox-image" src="" alt="Gallery image">
+     </div>
+    </div><!-- Full Gallery Page Modal -->
+    <div id="gallery-page-modal" class="fixed inset-0 z-50 hidden overflow-y-auto"><!-- Header -->
+     <div class="sticky top-0 z-10 nav-blur border-b border-blue-500/10">
+      <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+       <h1 class="font-display text-3xl font-bold">Event <span class="gold-accent">Gallery</span></h1><button id="gallery-page-close-btn" class="p-2 hover:bg-blue-500/20 rounded-full transition-colors">
+        <svg class="w-6 h-6 text-blue-300" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+        </svg></button>
+      </div>
+     </div><!-- Gallery Grid -->
+     <div class="max-w-7xl mx-auto px-6 py-12">
+      <div id="gallery-grid" class="gallery-grid"><!-- Gallery items will be populated here -->
+      </div>
+     </div>
+    </div>
+   </section>
+  </div>
+  <script>
+    let currentRecordCount = 0;
+    let galleryImages = [
+      'https://img.sanishtech.com/u/9aece0e638cf73757b4d81e6a42d5c0d.jpg',
+      'https://img.sanishtech.com/u/6170f52be413d7c8adee0f2c564f4498.jpg',
+      'https://img.sanishtech.com/u/80aee6f520e7c876713fdcb9428af164.jpg',
+      'https://img.sanishtech.com/u/9fe94409bc4482e6510b4268d2fbcbc0.jpg',
+      'https://img.sanishtech.com/u/86593420b56dfc4c1e470d10ec58dd7d.jpg',
+      'https://img.sanishtech.com/u/36b3c2fa130fbef675c610fd34eaaec0.jpg',
+      'https://img.sanishtech.com/u/1d2d2f6021280bc5279134bd72272235.jpg',
+      'https://img.sanishtech.com/u/4c5be7cbfecf9e7c514b0ac9fb8a9859.jpg',
+      'https://img.sanishtech.com/u/8d53f550684694e3b9e07231f61e3963.jpg',
+      'https://img.sanishtech.com/u/3e401f2044e3d8391bc3060678b5c415.jpg',
+      'https://img.sanishtech.com/u/57b6301aff6787f012f82d3da3293e4a.jpg',
+      'https://img.sanishtech.com/u/79d9db2f02d44caf606151f422d7dd76.jpg',
+      'https://img.sanishtech.com/u/8b8ef7fff0474db2ab9450209558fa95.jpg',
+      'https://img.sanishtech.com/u/044ebfe0712feb890ddf8fff7a1991e6.jpg',
+      'https://img.sanishtech.com/u/ef71361d4b7e78b1342d337c28c53fe4.jpg',
+      'https://img.sanishtech.com/u/580740f382732832868f599c0402592c.jpg',
+      'https://img.sanishtech.com/u/5a04a5c7863be5a.jpg',
+      'https://img.sanishtech.com/u/5b0266482532d18d78c164ca3382106b.jpg',
+      'https://img.sanishtech.com/u/e03a02f0e661ce083215768bc86892bb.jpg',
+      'https://img.sanishtech.com/u/cabc4dd61418ac91ade7601b06dc50d6.jpg',
+      'https://img.sanishtech.com/u/4113e39469b6c769d170e20bb2f287ea.jpg',
+      'https://img.sanishtech.com/u/84691a9a22fed24ef775a325eb650d72.jpg',
+      'https://img.sanishtech.com/u/38c5f407ad4de75c6c04b6e4e7f22851.jpg',
+      'https://img.sanishtech.com/u/28d5a40db95b5303c3e3acafbf4c4467.jpg',
+      'https://img.sanishtech.com/u/a8e169568aa9c4d7266d750da6a038a4.jpg',
+      'https://img.sanishtech.com/u/304cf640f7ff1e40ba330858a77223fb.jpg',
+      'https://img.sanishtech.com/u/9324fb2693d19f5b09b63508f3cb7b51.jpg',
+      'https://img.sanishtech.com/u/449fb25fa3ab88238daf4d6a9d7fd06b.jpg',
+      'https://img.sanishtech.com/u/060bdc9d93181f8b9680d5b451edf3b9.jpg',
+    ];
+    let currentLightboxIndex = 0;
+
+    function toggleFaq(element) {
+      const answer = element.nextElementSibling;
+      const icon = element.querySelector('.faq-icon');
+      
+      answer.classList.toggle('open');
+      icon.classList.toggle('open');
+    }
+
+    function openLightbox(src) {
+      currentLightboxIndex = galleryImages.indexOf(src);
+      document.getElementById('lightbox-image').src = src;
+      document.getElementById('lightbox').classList.add('open');
+    }
+
+    function closeLightbox() {
+      document.getElementById('lightbox').classList.remove('open');
+    }
+
+    function previousLightbox() {
+      currentLightboxIndex = (currentLightboxIndex - 1 + galleryImages.length) % galleryImages.length;
+      document.getElementById('lightbox-image').src = galleryImages[currentLightboxIndex];
+    }
+
+    function nextLightbox() {
+      currentLightboxIndex = (currentLightboxIndex + 1) % galleryImages.length;
+      document.getElementById('lightbox-image').src = galleryImages[currentLightboxIndex];
+    }
+
+    function populateGalleryGrid() {
+      const galleryGrid = document.getElementById('gallery-grid');
+      galleryGrid.innerHTML = '';
+      galleryImages.forEach(img => {
+        const item = document.createElement('div');
+        item.className = 'gallery-grid-item';
+        item.onclick = () => openLightbox(img);
+        item.innerHTML = `<img src="${img}" alt="Gallery image" loading="lazy" onerror="console.error('Image failed to load:', this.src); this.style.background='#0f2447'; this.alt='Image unavailable';">`;
+        galleryGrid.appendChild(item);
+      });
+    }
+
+    const viewAllGalleryBtn = document.getElementById('view-all-gallery-btn');
+    const galleryPageModal = document.getElementById('gallery-page-modal');
+    const galleryPageCloseBtn = document.getElementById('gallery-page-close-btn');
+
+    if (viewAllGalleryBtn) {
+      viewAllGalleryBtn.addEventListener('click', () => {
+        populateGalleryGrid();
+        galleryPageModal.classList.remove('hidden');
+      });
+    }
+
+    if (galleryPageCloseBtn) {
+      galleryPageCloseBtn.addEventListener('click', () => {
+        galleryPageModal.classList.add('hidden');
+      });
+    }
+
+    if (galleryPageModal) {
+      galleryPageModal.addEventListener('click', (e) => {
+        if (e.target === galleryPageModal) {
+          galleryPageModal.classList.add('hidden');
+        }
+      });
+    }
+
+    async function handleContactForm(e) {
+      e.preventDefault();
+
+      if (currentRecordCount >= 999) {
+        alert('We have reached maximum submissions. Thank you!');
+        return;
+      }
+
+      const name = document.getElementById('name').value;
+      const email = document.getElementById('email').value;
+      const subject = document.getElementById('subject').value;
+      const message = document.getElementById('message').value;
+
+      const submitBtn = document.getElementById('submit-btn');
+      submitBtn.disabled = true;
+      document.getElementById('submit-text').textContent = 'Sending...';
+
+      if (window.dataSdk) {
+        const result = await window.dataSdk.create({
+          name,
+          email,
+          subject,
+          message,
+          submitted_at: new Date().toISOString()
+        });
+
+        if (result.isOk) {
+          document.getElementById('contact-form').classList.add('hidden');
+          document.getElementById('form-success').classList.remove('hidden');
+        } else {
+          alert('Error sending message. Please try again.');
+          submitBtn.disabled = false;
+          document.getElementById('submit-text').textContent = 'Send Message';
+        }
+      }
+    }
+
+    const dataHandler = {
+      onDataChanged(data) {
+        currentRecordCount = data.length;
+      }
+    };
+
+    if (window.dataSdk) {
+      window.dataSdk.init(dataHandler);
+    }
+
+    // Modal Controls
+    const sponsorsSectionBtn = document.getElementById('sponsors-section-btn');
+    const navSponsorsBtn = document.getElementById('nav-sponsors-btn');
+    const sponsorModal = document.getElementById('sponsor-modal');
+    const modalCloseBtn = document.getElementById('modal-close-btn');
+
+    if (sponsorsSectionBtn) {
+      sponsorsSectionBtn.addEventListener('click', () => {
+        sponsorModal.classList.remove('hidden');
+      });
+    }
+
+    if (navSponsorsBtn) {
+      navSponsorsBtn.addEventListener('click', () => {
+        sponsorModal.classList.remove('hidden');
+      });
+    }
+
+    if (modalCloseBtn) {
+      modalCloseBtn.addEventListener('click', () => {
+        sponsorModal.classList.add('hidden');
+      });
+    }
+
+    if (sponsorModal) {
+      sponsorModal.addEventListener('click', (e) => {
+        if (e.target === sponsorModal) {
+          sponsorModal.classList.add('hidden');
+        }
+      });
+    }
+
+    // Past Events Modal
+    const pastEventsBtn = document.getElementById('past-events-btn');
+    const pastEventsModal = document.getElementById('past-events-modal');
+    const pastEventsCloseBtn = document.getElementById('past-events-close-btn');
+
+    if (pastEventsBtn) {
+      pastEventsBtn.addEventListener('click', () => {
+        pastEventsModal.classList.remove('hidden');
+      });
+    }
+
+    if (pastEventsCloseBtn) {
+      pastEventsCloseBtn.addEventListener('click', () => {
+        pastEventsModal.classList.add('hidden');
+      });
+    }
+
+    if (pastEventsModal) {
+      pastEventsModal.addEventListener('click', (e) => {
+        if (e.target === pastEventsModal) {
+          pastEventsModal.classList.add('hidden');
+        }
+      });
+    }
+
+    // Smooth scrolling for all anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        const href = this.getAttribute('href');
+        if (href && href !== '#' && document.querySelector(href)) {
+          e.preventDefault();
+          const target = document.querySelector(href);
+          setTimeout(() => {
+            target.scrollIntoView({
+              behavior: 'smooth',
+              block: 'start'
+            });
+          }, 100);
+        }
+      });
+    });
+  </script>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9db3ac68f03d4c81',t:'MTc3MzMyNzY3OS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
