@@ -1,0 +1,35 @@
+# Dependencies
+node_modules/
+vendor/
+
+# Build output
+dist/
+build/
+*.egg-info/
+__pycache__/
+*.pyc
+*.pyo
+
+# Environment files
+.env
+.env.local
+.env.*.local
+
+# IDE / Editor files
+.idea/
+.vscode/
+*.swp
+*.swo
+.DS_Store
+
+# Logs
+*.log
+logs/
+
+# Test coverage
+coverage/
+.coverage
+
+# Temporary files
+tmp/
+temp/
