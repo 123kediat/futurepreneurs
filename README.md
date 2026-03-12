@@ -4,6 +4,39 @@ Single-page website for the Futurepreneurs Entrepreneurship Cell, Techno India U
 
 ---
 
+## ❓ FAQ — Quick answers
+
+### Q: How do I merge the PR into `main`?
+
+The pull request is currently a **draft**. Follow these steps:
+
+1. Go to the **[Pull requests tab](https://github.com/123kediat/futurepreneurs/pulls)** on GitHub and open the draft PR.
+2. Scroll to the bottom and click **"Ready for review"** — this takes it out of draft mode.
+3. Click **"Merge pull request"** → **"Confirm merge"**.
+
+That's it! GitHub Actions will immediately start deploying your site to GitHub Pages.
+
+---
+
+### Q: Where is the CNAME file? How do I edit it?
+
+The `CNAME` file lives at the **root of the repository**. You can find and edit it directly on GitHub:
+
+1. Open your repository on GitHub.
+2. Click on the file **`CNAME`** in the file list.
+3. Click the ✏️ **pencil (Edit) icon** in the top-right corner.
+4. Replace `yourdomain.com` with your actual domain and click **"Commit changes"**.
+
+> **Tip:** After the PR is merged into `main`, you can also use this direct link
+> (replace `123kediat/futurepreneurs` with your repo if it differs):
+> `https://github.com/123kediat/futurepreneurs/edit/main/CNAME`
+
+The file currently contains the placeholder `yourdomain.com` — replace it with the domain you own
+(e.g. `futurepreneurs.in`). You get a domain name from a registrar like GoDaddy, Namecheap, or
+Google Domains — it is **not** provided by GitHub. See **Step 2** below for full DNS setup.
+
+---
+
 ## 🚀 Hosting on GitHub Pages (free)
 
 ### Step 1 — Enable GitHub Pages in repository settings
