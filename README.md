@@ -134,19 +134,40 @@ with any frontend domain — **no nameserver change is required** for Cloudflare
 
 ### Step 2 — Add your domain as a Web platform
 
-1. Inside your project, go to **Overview → Platforms → Add a platform**.
-2. You will see a row of platform **type tiles**: Web, Flutter, Apple, Android, etc.  
-   **Click the "Web" tile.** This is the type selection — there is no separate "Type" dropdown to fill in afterwards.
-3. A short form appears with two fields. Fill them in as shown:
+1. Inside your project, click **Overview** in the left sidebar.
+2. Scroll down to the **Platforms** section and click **Add a platform**.
+3. A modal/dialog opens with a row of platform **type tiles**. It looks like this:
 
-| Field    | Value                      |
-|----------|----------------------------|
-| Name     | Futurepreneurs Site        |
-| Hostname | `futurepreneurs.social`    |
+   ```
+   ┌───────────────────────────────────────────────────────────────┐
+   │  Add a platform                                               │
+   │                                                               │
+   │  ┌─────────┐  ┌─────────┐  ┌─────────┐  ┌─────────┐        │
+   │  │   🌐    │  │   🦋    │  │   🍎    │  │   🤖    │        │
+   │  │   Web   │  │ Flutter │  │  Apple  │  │ Android │  ...   │
+   │  └─────────┘  └─────────┘  └─────────┘  └─────────┘        │
+   │      ▲                                                        │
+   │      └── Click THIS tile                                      │
+   └───────────────────────────────────────────────────────────────┘
+   ```
 
-4. Click **Next** (or **Register**) to save.
+   **Click the "Web" tile** — this is the platform type. Ignore Flutter, Apple, Android, etc.
 
-> **Tip:** For local testing add a second Web platform entry with Hostname `localhost`.
+4. After clicking **Web**, a short form appears. Fill it in exactly as shown:
+
+   | Field        | What to type                |
+   |--------------|-----------------------------|
+   | **Name**     | `Futurepreneurs Site`       |
+   | **Hostname** | `futurepreneurs.social`     |
+
+   > The **Hostname** field must be your bare domain — no `https://`, no trailing `/`.  
+   > ✅ correct: `futurepreneurs.social`  
+   > ❌ wrong: `https://futurepreneurs.social`  
+   > If you also need `www.futurepreneurs.social` to work, add it as a **second** separate Web platform entry with Hostname `www.futurepreneurs.social`.
+
+5. Click **Next** → **Create** (button label may say **Next** or **Register** depending on your Console version) to save.
+
+> **Tip:** Repeat steps 2–5 to add a second Web platform with **Hostname** `localhost` if you want to test the contact form locally.
 
 This tells Appwrite which domains are allowed to call the API (CORS). No DNS change is needed — the browser calls `cloud.appwrite.io` directly.
 
@@ -154,6 +175,8 @@ This tells Appwrite which domains are allowed to call the API (CORS). No DNS cha
 
 > Database `69b67af80013aa9b99b1` and collection `fp-db` are already created and wired into
 > `index.html`. The steps below are kept for reference only.
+> *(Note: `fp-db` is a custom collection ID — Appwrite allows both custom string IDs and
+> auto-generated alphanumeric IDs. Both are valid.)*
 
 1. In the sidebar, open **Databases → Create database**.
    Note the **Database ID** shown after creation.
