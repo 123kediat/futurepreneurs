@@ -12,7 +12,7 @@ Single-page website for the Futurepreneurs Entrepreneurship Cell, Techno India U
 | 2 | Appwrite Project ID wired in (`69b67ac60019d400836a`) | ✅ Done — already in `index.html` |
 | 3 | Add your site domain as a **Web platform** in Appwrite Console (click the "Web" tile — that IS the type) | ⬜ **You do this** — see "Appwrite backend setup → Step 2" below |
 | 4 | Create a **Database** in Appwrite Console, copy its ID | ✅ Done — `69b67af80013aa9b99b1` wired into `index.html` |
-| 5 | Create a **Collection** with 5 attributes + "Any → Create" permission | ⬜ **You do this** — see "Appwrite backend setup → Step 3" below |
+| 5 | Create a **Collection** with 5 attributes + "Any → Create" permission (in the collection's **Settings** tab) | ⬜ **You do this** — see "Appwrite backend setup → Step 3" below |
 | 6 | Paste the Database ID & Collection ID into `index.html` | ⬜ **You do this** — see "Appwrite backend setup → Step 4" below |
 
 > **Short answer to "is there something I need to do manually?"**  
@@ -165,9 +165,19 @@ This tells Appwrite which domains are allowed to call the API (CORS). No DNS cha
    | message      | String | ✅        |
    | submitted_at | String | ✅        |
 
-4. Under **Settings → Permissions** for the collection, add:
-   - **Role: Any** → **Create** ✅  
-     *(allows anonymous visitors to submit the form)*
+4. Set **Permissions** on the collection so anonymous visitors can submit the form:
+
+   > **Where to find it:** Click on the **collection name** (not the database) in the left panel.
+   > At the top of the collection page you will see tabs: **Documents · Attributes · Indexes · Settings**.
+   > Click **Settings**, then scroll down to the **Permissions** section.
+   > *(If your Appwrite Console shows a dedicated **Permissions** tab instead, click that tab directly.)*
+
+   Inside Permissions:
+   - Click **Add role** → choose **All users** (labelled `any` in older Console versions)
+   - Tick the **Create** checkbox ✅
+   - Click **Update** to save
+
+   This allows any visitor to submit the contact form without needing an account.
 
 ### Step 4 — Set the IDs in `index.html`
 
