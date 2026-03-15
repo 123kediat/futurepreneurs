@@ -10,10 +10,10 @@ Single-page website for the Futurepreneurs Entrepreneurship Cell, Techno India U
 |---|------|--------|
 | 1 | Appwrite endpoint wired in (`https://sgp.cloud.appwrite.io/v1`) | ✅ Done — already in `index.html` |
 | 2 | Appwrite Project ID wired in (`69b67ac60019d400836a`) | ✅ Done — already in `index.html` |
-| 3 | Add your site domain as a **Web platform** in Appwrite Console | ⬜ **You do this** — see §Appwrite Step 2 below |
-| 4 | Create a **Database** in Appwrite Console, copy its ID | ⬜ **You do this** — see §Appwrite Step 3 below |
-| 5 | Create a **Collection** with 5 attributes + "Any → Create" permission | ⬜ **You do this** — see §Appwrite Step 3 below |
-| 6 | Paste the Database ID & Collection ID into `index.html` | ⬜ **You do this** — see §Appwrite Step 4 below |
+| 3 | Add your site domain as a **Web platform** in Appwrite Console (click the "Web" tile — that IS the type) | ⬜ **You do this** — see "Appwrite backend setup → Step 2" below |
+| 4 | Create a **Database** in Appwrite Console, copy its ID | ⬜ **You do this** — see "Appwrite backend setup → Step 3" below |
+| 5 | Create a **Collection** with 5 attributes + "Any → Create" permission | ⬜ **You do this** — see "Appwrite backend setup → Step 3" below |
+| 6 | Paste the Database ID & Collection ID into `index.html` | ⬜ **You do this** — see "Appwrite backend setup → Step 4" below |
 
 > **Short answer to "is there something I need to do manually?"**  
 > Yes — steps 3–6 above must be completed inside the [Appwrite Console](https://cloud.appwrite.io)
@@ -133,15 +133,21 @@ with any frontend domain — **no nameserver change is required** for Cloudflare
 
 ### Step 2 — Add your domain as a Web platform
 
-Inside your project go to **Overview → Platforms → Add a platform → Web**.
+1. Inside your project, go to **Overview → Platforms → Add a platform**.
+2. You will see a row of platform **type tiles**: Web, Flutter, Apple, Android, etc.  
+   **Click the "Web" tile.** This is the type selection — there is no separate "Type" dropdown to fill in afterwards.
+3. A short form appears with two fields. Fill them in as shown:
 
 | Field    | Value                      |
 |----------|----------------------------|
 | Name     | Futurepreneurs Site        |
 | Hostname | `futurepreneurs.social`    |
 
-This configures Appwrite's CORS policy so requests from your domain are accepted.
-No DNS change is needed — Appwrite Cloud is reached directly at `cloud.appwrite.io`.
+4. Click **Next** (or **Register**) to save.
+
+> **Tip:** For local testing add a second Web platform entry with Hostname `localhost`.
+
+This tells Appwrite which domains are allowed to call the API (CORS). No DNS change is needed — the browser calls `cloud.appwrite.io` directly.
 
 ### Step 3 — Create a database and collection
 
