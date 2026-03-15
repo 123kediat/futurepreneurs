@@ -4,7 +4,57 @@ Single-page website for the Futurepreneurs Entrepreneurship Cell, Techno India U
 
 ---
 
+## ✅ Setup status — what's done and what you still need to do
+
+| # | Task | Status |
+|---|------|--------|
+| 1 | Appwrite endpoint wired in (`https://sgp.cloud.appwrite.io/v1`) | ✅ Done — in `lib/appwrite.js` |
+| 2 | Appwrite Project ID wired in (`69b67ac60019d400836a`) | ✅ Done — in `lib/appwrite.js` |
+| 3 | Add your site domain as a **Web platform** in Appwrite Console — tile **Web**, type **JavaScript**, hostname `futurepreneurs.social` | ✅ Done — "Futurepreneurs Site" platform added |
+| 4 | Create a **Database** in Appwrite Console, copy its ID | ✅ Done — `69b67af80013aa9b99b1` wired into `index.html` |
+| 5 | Create a **Collection** with 5 attributes + "Any → Create" permission (in the collection's **Settings** tab) | ✅ Done — collection `fp-db` created |
+| 6 | Paste the Database ID & Collection ID into `index.html` | ✅ Done — both IDs wired into `index.html` |
+
+> **🎉 All steps complete!**  
+> All six rows above are done — the endpoint, Project ID, Web platform, Database, Collection, and IDs are all wired in and live. The contact form at `https://futurepreneurs.social` is fully operational.
+
+---
+
 ## ❓ FAQ — Quick answers
+
+### Q: Is the website published/deployed or just working locally?
+
+**The website is fully deployed and publicly live.** Here is how it works end-to-end:
+
+| Layer | What it does | Where |
+|-------|-------------|-------|
+| **GitHub Pages** | Serves the static `index.html` | Auto-deployed on every push to `main` via `.github/workflows/deploy.yml` |
+| **Custom domain** | `https://futurepreneurs.social` | Set via the `CNAME` file + Cloudflare DNS records |
+| **Appwrite Cloud** | Hosts the backend (database, auth) | `https://sgp.cloud.appwrite.io/v1` |
+
+So visitors who open **https://futurepreneurs.social** in their browser will see the fully deployed site — no local setup needed. ✅ The Web platform (`futurepreneurs.social`) has been added in Appwrite Console, so CORS is fully configured.
+
+---
+
+### Q: Do I need to add an API key or dev keys in Appwrite?
+
+**No — API keys are not needed and should not be used for a browser-based web app.**
+
+Here is why:
+
+| Key type | What it's for | Should you add it? |
+|----------|--------------|-------------------|
+| **API Key** | Server-side / admin scripts that run outside the browser (e.g. a Node.js backend, a cron job, a migration script). API keys bypass all Appwrite security rules. | ❌ **Do not add** — leaking one in browser code gives anyone full admin access to your project. |
+| **Web platform** (hostname) | Tells Appwrite which browser origins are allowed to make API calls. This is CORS allowlist, not a secret. | ✅ **Already done** — `futurepreneurs.social` is registered. |
+
+For this project the browser talks to Appwrite directly using the **Client SDK** (loaded via CDN). The Client SDK uses only:
+1. The **Endpoint** — `https://sgp.cloud.appwrite.io/v1` (public, not secret)
+2. The **Project ID** — `69b67ac60019d400836a` (public, not secret)
+3. The **Web platform** allowlist entry — to pass CORS (already added ✅)
+
+That's it. No API key, no dev key, no `.env` file. Everything needed is already in the code and the Appwrite Console. **The contact form is fully operational.**
+
+---
 
 ### Q: How do I merge the PR into `main`?
 
@@ -31,9 +81,8 @@ The `CNAME` file lives at the **root of the repository**. You can find and edit 
 > (replace `123kediat/futurepreneurs` with your repo if it differs):
 > `https://github.com/123kediat/futurepreneurs/edit/main/CNAME`
 
-The file currently contains the placeholder `yourdomain.com` — replace it with the domain you own
-(e.g. `futurepreneurs.in`). You get a domain name from a registrar like GoDaddy, Namecheap, or
-Google Domains — it is **not** provided by GitHub. See **Step 2** below for full DNS setup.
+The file currently contains `futurepreneurs.social`. Change it only if your domain is different.
+See **Step 2** below for full DNS setup.
 
 ---
 
@@ -50,14 +99,16 @@ The included workflow (`.github/workflows/deploy.yml`) will automatically build 
 
 ---
 
-### Step 2 — Connect your custom domain
+### Step 2 — Connect your custom domain via Cloudflare DNS (no NS change required)
+
+You can keep Cloudflare as your DNS provider **without** transferring nameservers anywhere. Cloudflare acts as the DNS proxy; GitHub Pages serves the HTML; Appwrite Cloud handles the backend — all three work together seamlessly.
 
 #### 2a. Update the CNAME file
 
 Replace the placeholder in the `CNAME` file with your actual domain, e.g.:
 
 ```
-futurepreneurs.in
+futurepreneurs.social
 ```
 
 or a subdomain like:
@@ -68,35 +119,160 @@ ecell.youruniversity.edu
 
 Commit and push the change — GitHub Pages reads this file automatically.
 
-#### 2b. Add DNS records with your domain registrar
+#### 2b. Add DNS records in Cloudflare (no nameserver change needed)
 
-Log in to your domain registrar (GoDaddy, Namecheap, Google Domains, etc.) and add the following records:
+Log in to [dash.cloudflare.com](https://dash.cloudflare.com), select your domain, and go to **DNS → Records**.
 
-**For an apex/root domain** (e.g. `futurepreneurs.in`), add four **A records**:
+**For an apex/root domain** (e.g. `futurepreneurs.social`), add four **A records**:
 
-| Type | Name | Value          |
-|------|------|----------------|
-| A    | @    | 185.199.108.153 |
-| A    | @    | 185.199.109.153 |
-| A    | @    | 185.199.110.153 |
-| A    | @    | 185.199.111.153 |
+| Type | Name | Content         | Proxy status |
+|------|------|-----------------|--------------|
+| A    | @    | 185.199.108.153 | DNS only ☁️ |
+| A    | @    | 185.199.109.153 | DNS only ☁️ |
+| A    | @    | 185.199.110.153 | DNS only ☁️ |
+| A    | @    | 185.199.111.153 | DNS only ☁️ |
 
-**For a subdomain** (e.g. `ecell.youruniversity.edu`), add a **CNAME record**:
+> ⚠️ Set the proxy status to **DNS only** (grey cloud — not orange/proxied) for **all four** A records.
+> GitHub Pages handles TLS/HTTPS itself and requires direct DNS resolution.
 
-| Type  | Name  | Value                          |
-|-------|-------|-------------------------------|
-| CNAME | ecell | 123kediat.github.io            |
+**For a `www` subdomain**, add a CNAME record:
 
-> DNS changes can take up to 48 hours to propagate.
+| Type  | Name | Content                | Proxy status |
+|-------|------|------------------------|--------------|
+| CNAME | www  | 123kediat.github.io    | DNS only ☁️ |
 
-#### 2c. Enable HTTPS
+> DNS changes typically propagate within a few minutes inside Cloudflare.
+
+#### 2c. Enable HTTPS on GitHub Pages
 
 Once GitHub detects your domain (usually within a few minutes after DNS propagates):
 
 1. Go to **Settings → Pages**.
 2. Tick **Enforce HTTPS**.
 
-Your site will then be served securely at `https://yourdomain.com`.
+Your site will then be served securely at `https://futurepreneurs.social`.
+
+---
+
+## 🗄️ Appwrite backend setup
+
+The contact form uses [Appwrite Cloud](https://cloud.appwrite.io) as its backend. This works
+with any frontend domain — **no nameserver change is required** for Cloudflare users.
+
+### Step 1 — Create an Appwrite project
+
+1. Sign up / log in at <https://cloud.appwrite.io>.
+2. Click **Create project**, give it a name (e.g. *futurepreneurs*), and note the **Project ID**.
+
+### Step 2 — Add your domain as a Web platform
+
+1. Inside your project, click **Overview** in the left sidebar.
+2. Scroll down to the **Platforms** section and click **Add a platform**.
+3. A modal/dialog opens with a row of platform **type tiles**. It looks like this:
+
+   ```
+   ┌───────────────────────────────────────────────────────────────┐
+   │  Add a platform                                               │
+   │                                                               │
+   │  ┌─────────┐  ┌─────────┐  ┌─────────┐  ┌─────────┐        │
+   │  │   🌐    │  │   🦋    │  │   🍎    │  │   🤖    │        │
+   │  │   Web   │  │ Flutter │  │  Apple  │  │ Android │  ...   │
+   │  └─────────┘  └─────────┘  └─────────┘  └─────────┘        │
+   │      ▲                                                        │
+   │      └── Click THIS tile                                      │
+   └───────────────────────────────────────────────────────────────┘
+   ```
+
+   **Click the "Web" tile** — this is the platform type. Ignore Flutter, Apple, Android, etc.
+
+4. After clicking **Web**, a form appears with **three** fields. Fill them in exactly as shown:
+
+   | Field        | What to select / type       | Why                                           |
+   |--------------|-----------------------------|-----------------------------------------------|
+   | **Type**     | **JavaScript**              | The site is a plain HTML + JS file — no React, Vue, Next.js, etc. |
+   | **Name**     | `Futurepreneurs Site`       | A human-readable label (your choice)          |
+   | **Hostname** | `futurepreneurs.social`     | The domain Appwrite will allow API calls from |
+
+   > **Type options you will see — and why to pick JavaScript:**
+   > ```
+   > ○ Svelte       ○ React      ○ Nuxt       ○ Next.js
+   > ○ Vue          ○ Angular    ○ TanStack   ● JavaScript  ← select this
+   > ```
+   > This project is a single `index.html` file that loads the Appwrite JS SDK via a `<script>` tag.
+   > It does not use any framework, so **JavaScript** is the correct type.
+
+   > **Hostname rules** — must be your bare domain:  
+   > ✅ correct: `futurepreneurs.social`  
+   > ❌ wrong: `https://futurepreneurs.social` (no protocol)  
+   > If you also need `www.futurepreneurs.social`, add it as a **second** separate Web platform entry.
+
+5. Click **Next** → **Create** (button label may say **Next** or **Register** depending on your Console version) to save.
+
+> **Tip:** Repeat steps 2–5 to add a second Web platform with **Hostname** `localhost` if you want to test the contact form locally.
+
+This tells Appwrite which domains are allowed to call the API (CORS). No DNS change is needed — the browser calls `cloud.appwrite.io` directly.
+
+### Step 3 — Create a database and collection ✅ Already done
+
+> Database `69b67af80013aa9b99b1` and collection `fp-db` are already created and wired into
+> `index.html`. The steps below are kept for reference only.
+> *(Note: `fp-db` is a custom collection ID — Appwrite allows both custom string IDs and
+> auto-generated alphanumeric IDs. Both are valid.)*
+
+1. In the sidebar, open **Databases → Create database**.
+   Note the **Database ID** shown after creation.
+2. Inside the database, click **Create collection** (e.g. name it *contacts*).
+   Note the **Collection ID**.
+3. The following **attributes** must exist on the collection (all five are required):
+
+   | Key          | Type   | Required |
+   |--------------|--------|----------|
+   | name         | String | ✅        |
+   | email        | String | ✅        |
+   | subject      | String | ✅        |
+   | message      | String | ✅        |
+   | submitted_at | String | ✅        |
+
+4. Set **Permissions** on the collection so anonymous visitors can submit the form:
+
+   > **Where to find it:** Click on the **collection name** (not the database) in the left panel.
+   > At the top of the collection page you will see tabs: **Documents · Attributes · Indexes · Settings**.
+   > Click **Settings**, then scroll down to the **Permissions** section.
+   > *(If your Appwrite Console shows a dedicated **Permissions** tab instead, click that tab directly.)*
+
+   Inside Permissions:
+   - Click **Add role** → choose **All users** (labelled `any` in older Console versions)
+   - Tick the **Create** checkbox ✅
+   - Click **Update** to save
+
+   This allows any visitor to submit the contact form without needing an account.
+
+### Step 4 — Set the IDs in `index.html` ✅ Already done
+
+All four values below are already set for this project — no edits needed:
+
+```js
+var APPWRITE_ENDPOINT       = 'https://sgp.cloud.appwrite.io/v1';
+var APPWRITE_PROJECT_ID     = '69b67ac60019d400836a';    // ✅ set
+var APPWRITE_DATABASE_ID    = '69b67af80013aa9b99b1'; // ✅ set
+var APPWRITE_COLLECTION_ID  = 'fp-db'; // ✅ set
+```
+
+Commit and push — the contact form will now store submissions in Appwrite.
+
+### How it works (no NS change needed)
+
+```
+Browser (futurepreneurs.social)
+  │
+  ├─ HTML/CSS/JS ──► GitHub Pages (served directly, resolved via Cloudflare DNS)
+  │
+  └─ API calls ────► https://sgp.cloud.appwrite.io/v1  (direct, CORS allowed for your domain)
+```
+
+Cloudflare DNS resolves your domain to GitHub Pages' servers. The Appwrite SDK inside the page calls
+`cloud.appwrite.io` directly from the visitor's browser — a completely separate request that
+does **not** need to go through your domain at all.
 
 ---
 
@@ -104,6 +280,10 @@ Your site will then be served securely at `https://yourdomain.com`.
 
 ```
 index.html   ← Full website (single-page)
+lib/
+  appwrite.js  ← Appwrite SDK bootstrap: creates window.appwriteClient /
+                  appwriteAccount / appwriteDatabases, and automatically
+                  calls client.ping() on page load to verify the backend.
 CNAME        ← Your custom domain (edit this)
 .github/
   workflows/
