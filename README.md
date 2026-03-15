@@ -151,8 +151,8 @@ No DNS change is needed — Appwrite Cloud is reached directly at `cloud.appwrit
 Open `index.html` and replace the four placeholder values near the top of the file:
 
 ```js
-var APPWRITE_ENDPOINT       = 'https://cloud.appwrite.io/v1';
-var APPWRITE_PROJECT_ID     = 'YOUR_PROJECT_ID';    // ← paste your Project ID
+var APPWRITE_ENDPOINT       = 'https://sgp.cloud.appwrite.io/v1';
+var APPWRITE_PROJECT_ID     = '69b67ac60019d400836a';    // ← your Project ID
 var APPWRITE_DATABASE_ID    = 'YOUR_DATABASE_ID';   // ← paste your Database ID
 var APPWRITE_COLLECTION_ID  = 'YOUR_COLLECTION_ID'; // ← paste your Collection ID
 ```
@@ -166,7 +166,7 @@ Browser (futurepreneurs.social)
   │
   ├─ HTML/CSS/JS ──► GitHub Pages (served directly, resolved via Cloudflare DNS)
   │
-  └─ API calls ────► https://cloud.appwrite.io/v1  (direct, CORS allowed for your domain)
+  └─ API calls ────► https://sgp.cloud.appwrite.io/v1  (direct, CORS allowed for your domain)
 ```
 
 Cloudflare DNS resolves your domain to GitHub Pages' servers. The Appwrite SDK inside the page calls

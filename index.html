@@ -13,8 +13,8 @@
     //  Replace the placeholder values below with the ones from
     //  your Appwrite Console (https://cloud.appwrite.io).
     // ─────────────────────────────────────────────────────────
-    var APPWRITE_ENDPOINT       = 'https://cloud.appwrite.io/v1';
-    var APPWRITE_PROJECT_ID     = 'YOUR_PROJECT_ID';
+    var APPWRITE_ENDPOINT       = 'https://sgp.cloud.appwrite.io/v1';
+    var APPWRITE_PROJECT_ID     = '69b67ac60019d400836a';
     var APPWRITE_DATABASE_ID    = 'YOUR_DATABASE_ID';
     var APPWRITE_COLLECTION_ID  = 'YOUR_COLLECTION_ID';
 
@@ -22,6 +22,19 @@
       try {
         var AppwriteSDK = window.Appwrite;
         if (!AppwriteSDK) { return; }
+
+        var missingVars = [
+          ['APPWRITE_DATABASE_ID',   APPWRITE_DATABASE_ID],
+          ['APPWRITE_COLLECTION_ID', APPWRITE_COLLECTION_ID]
+        ].filter(function (v) { return v[1].startsWith('YOUR_'); })
+         .map(function (v) { return v[0]; });
+        if (missingVars.length) {
+          console.warn(
+            'Appwrite: replace placeholder value(s) in index.html before going live:',
+            missingVars.join(', ')
+          );
+        }
+
         var client = new AppwriteSDK.Client()
           .setEndpoint(APPWRITE_ENDPOINT)
           .setProject(APPWRITE_PROJECT_ID);
