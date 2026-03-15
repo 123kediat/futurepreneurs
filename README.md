@@ -8,8 +8,8 @@ Single-page website for the Futurepreneurs Entrepreneurship Cell, Techno India U
 
 | # | Task | Status |
 |---|------|--------|
-| 1 | Appwrite endpoint wired in (`https://sgp.cloud.appwrite.io/v1`) | ✅ Done — already in `index.html` |
-| 2 | Appwrite Project ID wired in (`69b67ac60019d400836a`) | ✅ Done — already in `index.html` |
+| 1 | Appwrite endpoint wired in (`https://sgp.cloud.appwrite.io/v1`) | ✅ Done — in `lib/appwrite.js` |
+| 2 | Appwrite Project ID wired in (`69b67ac60019d400836a`) | ✅ Done — in `lib/appwrite.js` |
 | 3 | Add your site domain as a **Web platform** in Appwrite Console — tile **Web**, type **JavaScript**, hostname `futurepreneurs.social` | ⬜ **You do this** — see "Appwrite backend setup → Step 2" below |
 | 4 | Create a **Database** in Appwrite Console, copy its ID | ✅ Done — `69b67af80013aa9b99b1` wired into `index.html` |
 | 5 | Create a **Collection** with 5 attributes + "Any → Create" permission (in the collection's **Settings** tab) | ✅ Done — collection `fp-db` created |
@@ -248,6 +248,10 @@ does **not** need to go through your domain at all.
 
 ```
 index.html   ← Full website (single-page)
+lib/
+  appwrite.js  ← Appwrite SDK bootstrap: creates window.appwriteClient /
+                  appwriteAccount / appwriteDatabases, and automatically
+                  calls client.ping() on page load to verify the backend.
 CNAME        ← Your custom domain (edit this)
 .github/
   workflows/
