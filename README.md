@@ -4,6 +4,23 @@ Single-page website for the Futurepreneurs Entrepreneurship Cell, Techno India U
 
 ---
 
+## ✅ Setup status — what's done and what you still need to do
+
+| # | Task | Status |
+|---|------|--------|
+| 1 | Appwrite endpoint wired in (`https://sgp.cloud.appwrite.io/v1`) | ✅ Done — already in `index.html` |
+| 2 | Appwrite Project ID wired in (`69b67ac60019d400836a`) | ✅ Done — already in `index.html` |
+| 3 | Add your site domain as a **Web platform** in Appwrite Console | ⬜ **You do this** — see §Appwrite Step 2 below |
+| 4 | Create a **Database** in Appwrite Console, copy its ID | ⬜ **You do this** — see §Appwrite Step 3 below |
+| 5 | Create a **Collection** with 5 attributes + "Any → Create" permission | ⬜ **You do this** — see §Appwrite Step 3 below |
+| 6 | Paste the Database ID & Collection ID into `index.html` | ⬜ **You do this** — see §Appwrite Step 4 below |
+
+> **Short answer to "is there something I need to do manually?"**  
+> Yes — steps 3–6 above must be completed inside the [Appwrite Console](https://cloud.appwrite.io)
+> and then by editing two lines in `index.html`. Everything else is already handled.
+
+---
+
 ## ❓ FAQ — Quick answers
 
 ### Q: How do I merge the PR into `main`?
@@ -77,12 +94,12 @@ Log in to [dash.cloudflare.com](https://dash.cloudflare.com), select your domain
 
 | Type | Name | Content         | Proxy status |
 |------|------|-----------------|--------------|
-| A    | @    | 185.199.108.153 | DNS only ☁️ (grey cloud) |
+| A    | @    | 185.199.108.153 | DNS only ☁️ |
 | A    | @    | 185.199.109.153 | DNS only ☁️ |
 | A    | @    | 185.199.110.153 | DNS only ☁️ |
 | A    | @    | 185.199.111.153 | DNS only ☁️ |
 
-> ⚠️ Set the proxy status to **DNS only** (grey cloud) for these A records.
+> ⚠️ Set the proxy status to **DNS only** (grey cloud — not orange/proxied) for **all four** A records.
 > GitHub Pages handles TLS/HTTPS itself and requires direct DNS resolution.
 
 **For a `www` subdomain**, add a CNAME record:
@@ -152,7 +169,7 @@ Open `index.html` and replace the four placeholder values near the top of the fi
 
 ```js
 var APPWRITE_ENDPOINT       = 'https://sgp.cloud.appwrite.io/v1';
-var APPWRITE_PROJECT_ID     = '69b67ac60019d400836a';    // ← your Project ID
+var APPWRITE_PROJECT_ID     = '69b67ac60019d400836a';    // ← already set; verify this matches your project
 var APPWRITE_DATABASE_ID    = 'YOUR_DATABASE_ID';   // ← paste your Database ID
 var APPWRITE_COLLECTION_ID  = 'YOUR_COLLECTION_ID'; // ← paste your Collection ID
 ```
