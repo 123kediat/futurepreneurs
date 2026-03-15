@@ -15,9 +15,10 @@ Single-page website for the Futurepreneurs Entrepreneurship Cell, Techno India U
 | 5 | Create a **Collection** with 5 attributes + "Any → Create" permission (in the collection's **Settings** tab) | ✅ Done — collection `fp-db` created |
 | 6 | Paste the Database ID & Collection ID into `index.html` | ✅ Done — both IDs wired into `index.html` |
 
-> **Short answer to "is there something I need to do manually?"**  
-> Yes — steps 3–6 above must be completed inside the [Appwrite Console](https://cloud.appwrite.io)
-> and then by editing two lines in `index.html`. Everything else is already handled.
+> **Short answer to "is everything connected?"**  
+> Almost — **one manual step remains**: row 3 above (add your site domain as a Web platform in
+> the [Appwrite Console](https://cloud.appwrite.io)). All four IDs in `index.html` are already
+> wired in; CNAME is set; rows 4–6 are done in code. See "Appwrite backend setup → Step 2" below.
 
 ---
 
@@ -149,13 +150,16 @@ with any frontend domain — **no nameserver change is required** for Cloudflare
 
 This tells Appwrite which domains are allowed to call the API (CORS). No DNS change is needed — the browser calls `cloud.appwrite.io` directly.
 
-### Step 3 — Create a database and collection
+### Step 3 — Create a database and collection ✅ Already done
+
+> Database `69b67af80013aa9b99b1` and collection `fp-db` are already created and wired into
+> `index.html`. The steps below are kept for reference only.
 
 1. In the sidebar, open **Databases → Create database**.
    Note the **Database ID** shown after creation.
 2. Inside the database, click **Create collection** (e.g. name it *contacts*).
    Note the **Collection ID**.
-3. Add the following **attributes** to the collection:
+3. The following **attributes** must exist on the collection (all five are required):
 
    | Key          | Type   | Required |
    |--------------|--------|----------|
@@ -179,13 +183,13 @@ This tells Appwrite which domains are allowed to call the API (CORS). No DNS cha
 
    This allows any visitor to submit the contact form without needing an account.
 
-### Step 4 — Set the IDs in `index.html`
+### Step 4 — Set the IDs in `index.html` ✅ Already done
 
-Open `index.html` and replace the four placeholder values near the top of the file:
+All four values below are already set for this project — no edits needed:
 
 ```js
 var APPWRITE_ENDPOINT       = 'https://sgp.cloud.appwrite.io/v1';
-var APPWRITE_PROJECT_ID     = '69b67ac60019d400836a';    // ← already set; verify this matches your project
+var APPWRITE_PROJECT_ID     = '69b67ac60019d400836a';    // ✅ set
 var APPWRITE_DATABASE_ID    = '69b67af80013aa9b99b1'; // ✅ set
 var APPWRITE_COLLECTION_ID  = 'fp-db'; // ✅ set
 ```
