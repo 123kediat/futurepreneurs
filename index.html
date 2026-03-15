@@ -9,21 +9,14 @@
   <script src="https://cdn.jsdelivr.net/npm/appwrite@17/dist/iife/sdk.min.js"></script>
   <script>
     // ─────────────────────────────────────────────────────────
-    //  Appwrite configuration
-    //  ✅ DONE  — endpoint and project ID are already set.
-    //  ⬜ TODO  — replace the two YOUR_* placeholders below:
-    //             1. Open https://cloud.appwrite.io → your project → Databases
-    //             2. Create a database  → copy its ID  → paste below as APPWRITE_DATABASE_ID
-    //             3. Create a collection → copy its ID → paste below as APPWRITE_COLLECTION_ID
-    //             4. On the collection add attributes:
-    //                name, email, subject, message (all String, Required)
-    //                submitted_at (String, Required — store as ISO 8601, e.g. new Date().toISOString())
-    //             5. In the collection → Settings tab → Permissions: Add role "All users" → Create ✅
+    //  Appwrite configuration — ✅ ALL SET
+    //  Endpoint, Project ID, Database ID, and Collection ID
+    //  are all configured below. No further changes needed here.
     // ─────────────────────────────────────────────────────────
     var APPWRITE_ENDPOINT       = 'https://sgp.cloud.appwrite.io/v1';
     var APPWRITE_PROJECT_ID     = '69b67ac60019d400836a';
     var APPWRITE_DATABASE_ID    = '69b67af80013aa9b99b1'; // ✅ Database ID set
-    var APPWRITE_COLLECTION_ID  = 'YOUR_COLLECTION_ID'; // ← ⬜ paste Collection ID here
+    var APPWRITE_COLLECTION_ID  = 'fp-db'; // ✅ Collection ID set
 
     (function initAppwriteSdk() {
       try {

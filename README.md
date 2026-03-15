@@ -12,8 +12,8 @@ Single-page website for the Futurepreneurs Entrepreneurship Cell, Techno India U
 | 2 | Appwrite Project ID wired in (`69b67ac60019d400836a`) | ✅ Done — already in `index.html` |
 | 3 | Add your site domain as a **Web platform** in Appwrite Console (click the "Web" tile — that IS the type) | ⬜ **You do this** — see "Appwrite backend setup → Step 2" below |
 | 4 | Create a **Database** in Appwrite Console, copy its ID | ✅ Done — `69b67af80013aa9b99b1` wired into `index.html` |
-| 5 | Create a **Collection** with 5 attributes + "Any → Create" permission (in the collection's **Settings** tab) | ⬜ **You do this** — see "Appwrite backend setup → Step 3" below |
-| 6 | Paste the Database ID & Collection ID into `index.html` | ⬜ **You do this** — see "Appwrite backend setup → Step 4" below |
+| 5 | Create a **Collection** with 5 attributes + "Any → Create" permission (in the collection's **Settings** tab) | ✅ Done — collection `fp-db` created |
+| 6 | Paste the Database ID & Collection ID into `index.html` | ✅ Done — both IDs wired into `index.html` |
 
 > **Short answer to "is there something I need to do manually?"**  
 > Yes — steps 3–6 above must be completed inside the [Appwrite Console](https://cloud.appwrite.io)
@@ -187,7 +187,7 @@ Open `index.html` and replace the four placeholder values near the top of the fi
 var APPWRITE_ENDPOINT       = 'https://sgp.cloud.appwrite.io/v1';
 var APPWRITE_PROJECT_ID     = '69b67ac60019d400836a';    // ← already set; verify this matches your project
 var APPWRITE_DATABASE_ID    = '69b67af80013aa9b99b1'; // ✅ set
-var APPWRITE_COLLECTION_ID  = 'YOUR_COLLECTION_ID'; // ← paste your Collection ID
+var APPWRITE_COLLECTION_ID  = 'fp-db'; // ✅ set
 ```
 
 Commit and push — the contact form will now store submissions in Appwrite.
