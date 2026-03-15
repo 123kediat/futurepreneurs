@@ -10,7 +10,7 @@ Single-page website for the Futurepreneurs Entrepreneurship Cell, Techno India U
 |---|------|--------|
 | 1 | Appwrite endpoint wired in (`https://sgp.cloud.appwrite.io/v1`) | ✅ Done — already in `index.html` |
 | 2 | Appwrite Project ID wired in (`69b67ac60019d400836a`) | ✅ Done — already in `index.html` |
-| 3 | Add your site domain as a **Web platform** in Appwrite Console (click the "Web" tile — that IS the type) | ⬜ **You do this** — see "Appwrite backend setup → Step 2" below |
+| 3 | Add your site domain as a **Web platform** in Appwrite Console — tile **Web**, type **JavaScript**, hostname `futurepreneurs.social` | ⬜ **You do this** — see "Appwrite backend setup → Step 2" below |
 | 4 | Create a **Database** in Appwrite Console, copy its ID | ✅ Done — `69b67af80013aa9b99b1` wired into `index.html` |
 | 5 | Create a **Collection** with 5 attributes + "Any → Create" permission (in the collection's **Settings** tab) | ✅ Done — collection `fp-db` created |
 | 6 | Paste the Database ID & Collection ID into `index.html` | ✅ Done — both IDs wired into `index.html` |
@@ -153,17 +153,26 @@ with any frontend domain — **no nameserver change is required** for Cloudflare
 
    **Click the "Web" tile** — this is the platform type. Ignore Flutter, Apple, Android, etc.
 
-4. After clicking **Web**, a short form appears. Fill it in exactly as shown:
+4. After clicking **Web**, a form appears with **three** fields. Fill them in exactly as shown:
 
-   | Field        | What to type                |
-   |--------------|-----------------------------|
-   | **Name**     | `Futurepreneurs Site`       |
-   | **Hostname** | `futurepreneurs.social`     |
+   | Field        | What to select / type       | Why                                           |
+   |--------------|-----------------------------|-----------------------------------------------|
+   | **Type**     | **JavaScript**              | The site is a plain HTML + JS file — no React, Vue, Next.js, etc. |
+   | **Name**     | `Futurepreneurs Site`       | A human-readable label (your choice)          |
+   | **Hostname** | `futurepreneurs.social`     | The domain Appwrite will allow API calls from |
 
-   > The **Hostname** field must be your bare domain — no `https://`, no trailing `/`.  
+   > **Type options you will see — and why to pick JavaScript:**
+   > ```
+   > ○ Svelte       ○ React      ○ Nuxt       ○ Next.js
+   > ○ Vue          ○ Angular    ○ TanStack   ● JavaScript  ← select this
+   > ```
+   > This project is a single `index.html` file that loads the Appwrite JS SDK via a `<script>` tag.
+   > It does not use any framework, so **JavaScript** is the correct type.
+
+   > **Hostname rules** — must be your bare domain:  
    > ✅ correct: `futurepreneurs.social`  
-   > ❌ wrong: `https://futurepreneurs.social`  
-   > If you also need `www.futurepreneurs.social` to work, add it as a **second** separate Web platform entry with Hostname `www.futurepreneurs.social`.
+   > ❌ wrong: `https://futurepreneurs.social` (no protocol)  
+   > If you also need `www.futurepreneurs.social`, add it as a **second** separate Web platform entry.
 
 5. Click **Next** → **Create** (button label may say **Next** or **Register** depending on your Console version) to save.
 
