@@ -24,6 +24,22 @@ Single-page website for the Futurepreneurs Entrepreneurship Cell, Techno India U
 
 ## ❓ FAQ — Quick answers
 
+### Q: Is the website published/deployed or just working locally?
+
+**The website is fully deployed and publicly live.** Here is how it works end-to-end:
+
+| Layer | What it does | Where |
+|-------|-------------|-------|
+| **GitHub Pages** | Serves the static `index.html` | Auto-deployed on every push to `main` via `.github/workflows/deploy.yml` |
+| **Custom domain** | `https://futurepreneurs.social` | Set via the `CNAME` file + Cloudflare DNS records |
+| **Appwrite Cloud** | Hosts the backend (database, auth) | `https://sgp.cloud.appwrite.io/v1` |
+
+So visitors who open **https://futurepreneurs.social** in their browser will see the fully deployed site — no local setup needed.
+
+> **One remaining manual step:** Add `futurepreneurs.social` as a **Web platform** in the Appwrite Console so that browser CORS requests from the live domain are allowed. See **"Appwrite backend setup → Step 2"** below.
+
+---
+
 ### Q: How do I merge the PR into `main`?
 
 The pull request is currently a **draft**. Follow these steps:
