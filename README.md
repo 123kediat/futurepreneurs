@@ -10,15 +10,13 @@ Single-page website for the Futurepreneurs Entrepreneurship Cell, Techno India U
 |---|------|--------|
 | 1 | Appwrite endpoint wired in (`https://sgp.cloud.appwrite.io/v1`) | ✅ Done — in `lib/appwrite.js` |
 | 2 | Appwrite Project ID wired in (`69b67ac60019d400836a`) | ✅ Done — in `lib/appwrite.js` |
-| 3 | Add your site domain as a **Web platform** in Appwrite Console — tile **Web**, type **JavaScript**, hostname `futurepreneurs.social` | ⬜ **You do this** — see "Appwrite backend setup → Step 2" below |
+| 3 | Add your site domain as a **Web platform** in Appwrite Console — tile **Web**, type **JavaScript**, hostname `futurepreneurs.social` | ✅ Done — "Futurepreneurs Site" platform added |
 | 4 | Create a **Database** in Appwrite Console, copy its ID | ✅ Done — `69b67af80013aa9b99b1` wired into `index.html` |
 | 5 | Create a **Collection** with 5 attributes + "Any → Create" permission (in the collection's **Settings** tab) | ✅ Done — collection `fp-db` created |
 | 6 | Paste the Database ID & Collection ID into `index.html` | ✅ Done — both IDs wired into `index.html` |
 
-> **Short answer to "is everything connected?"**  
-> Almost — **one manual step remains**: row 3 above (add your site domain as a Web platform in
-> the [Appwrite Console](https://cloud.appwrite.io)). All four IDs in `index.html` are already
-> wired in; CNAME is set; rows 4–6 are done in code. See "Appwrite backend setup → Step 2" below.
+> **🎉 All steps complete!**  
+> All six rows above are done — the endpoint, Project ID, Web platform, Database, Collection, and IDs are all wired in and live. The contact form at `https://futurepreneurs.social` is fully operational.
 
 ---
 
@@ -34,9 +32,27 @@ Single-page website for the Futurepreneurs Entrepreneurship Cell, Techno India U
 | **Custom domain** | `https://futurepreneurs.social` | Set via the `CNAME` file + Cloudflare DNS records |
 | **Appwrite Cloud** | Hosts the backend (database, auth) | `https://sgp.cloud.appwrite.io/v1` |
 
-So visitors who open **https://futurepreneurs.social** in their browser will see the fully deployed site — no local setup needed.
+So visitors who open **https://futurepreneurs.social** in their browser will see the fully deployed site — no local setup needed. ✅ The Web platform (`futurepreneurs.social`) has been added in Appwrite Console, so CORS is fully configured.
 
-> **One remaining manual step:** Add `futurepreneurs.social` as a **Web platform** in the Appwrite Console so that browser CORS requests from the live domain are allowed. See **"Appwrite backend setup → Step 2"** below.
+---
+
+### Q: Do I need to add an API key or dev keys in Appwrite?
+
+**No — API keys are not needed and should not be used for a browser-based web app.**
+
+Here is why:
+
+| Key type | What it's for | Should you add it? |
+|----------|--------------|-------------------|
+| **API Key** | Server-side / admin scripts that run outside the browser (e.g. a Node.js backend, a cron job, a migration script). API keys bypass all Appwrite security rules. | ❌ **Do not add** — leaking one in browser code gives anyone full admin access to your project. |
+| **Web platform** (hostname) | Tells Appwrite which browser origins are allowed to make API calls. This is CORS allowlist, not a secret. | ✅ **Already done** — `futurepreneurs.social` is registered. |
+
+For this project the browser talks to Appwrite directly using the **Client SDK** (loaded via CDN). The Client SDK uses only:
+1. The **Endpoint** — `https://sgp.cloud.appwrite.io/v1` (public, not secret)
+2. The **Project ID** — `69b67ac60019d400836a` (public, not secret)
+3. The **Web platform** allowlist entry — to pass CORS (already added ✅)
+
+That's it. No API key, no dev key, no `.env` file. Everything needed is already in the code and the Appwrite Console. **The contact form is fully operational.**
 
 ---
 
