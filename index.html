@@ -5,8 +5,61 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Futurepreneurs | E-Cell TIU</title>
   <script src="https://cdn.tailwindcss.com/3.4.17"></script>
-  <script src="/_sdk/element_sdk.js"></script>
-  <script src="/_sdk/data_sdk.js"></script>
+  <!-- Appwrite Web SDK (IIFE build – exposes window.Appwrite) -->
+  <script src="https://cdn.jsdelivr.net/npm/appwrite@17/dist/iife/sdk.min.js"></script>
+  <script>
+    // ─────────────────────────────────────────────────────────
+    //  Appwrite configuration
+    //  Replace the placeholder values below with the ones from
+    //  your Appwrite Console (https://cloud.appwrite.io).
+    // ─────────────────────────────────────────────────────────
+    var APPWRITE_ENDPOINT       = 'https://cloud.appwrite.io/v1';
+    var APPWRITE_PROJECT_ID     = 'YOUR_PROJECT_ID';
+    var APPWRITE_DATABASE_ID    = 'YOUR_DATABASE_ID';
+    var APPWRITE_COLLECTION_ID  = 'YOUR_COLLECTION_ID';
+
+    (function initAppwriteSdk() {
+      try {
+        var AppwriteSDK = window.Appwrite;
+        if (!AppwriteSDK) { return; }
+        var client = new AppwriteSDK.Client()
+          .setEndpoint(APPWRITE_ENDPOINT)
+          .setProject(APPWRITE_PROJECT_ID);
+        var databases = new AppwriteSDK.Databases(client);
+
+        window.dataSdk = {
+          init: async function (handler) {
+            try {
+              var res = await databases.listDocuments(
+                APPWRITE_DATABASE_ID,
+                APPWRITE_COLLECTION_ID
+              );
+              handler.onDataChanged(res.documents);
+            } catch (err) {
+              console.warn('Appwrite init error:', err.message || err);
+              handler.onDataChanged([]);
+            }
+          },
+          create: async function (data) {
+            try {
+              await databases.createDocument(
+                APPWRITE_DATABASE_ID,
+                APPWRITE_COLLECTION_ID,
+                AppwriteSDK.ID.unique(),
+                data
+              );
+              return { isOk: true };
+            } catch (err) {
+              console.error('Appwrite create error:', err.message || err);
+              return { isOk: false, error: err };
+            }
+          }
+        };
+      } catch (err) {
+        console.warn('Appwrite SDK initialisation failed:', err.message || err);
+      }
+    })();
+  </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&amp;family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
@@ -1442,5 +1495,5 @@
       });
     });
   </script>
- <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9db3ac68f03d4c81',t:'MTc3MzMyNzY3OS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</body>
 </html>
