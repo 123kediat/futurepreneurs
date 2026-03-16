@@ -112,6 +112,11 @@
     * {
       scrollbar-width: none;
     }
+
+    /* Offset anchor targets so fixed navbar does not cover section headings */
+    section[id] {
+      scroll-margin-top: 80px;
+    }
     
     .font-display {
       font-family: 'Playfair Display', Georgia, serif;
@@ -435,7 +440,20 @@
        </svg></button>
      </div>
     </div>
-   </nav><!-- Hero Section -->
+   </nav>
+   <!-- Mobile Menu Drawer -->
+   <div id="mobile-menu" class="hidden fixed top-[72px] left-0 right-0 z-40 nav-blur border-b border-blue-500/10 md:hidden">
+    <div class="flex flex-col px-6 py-2">
+     <a href="#about" class="mobile-nav-link text-sm text-gray-300 hover:text-white transition-colors py-3 border-b border-blue-500/10">About</a>
+     <a href="#initiatives" class="mobile-nav-link text-sm text-gray-300 hover:text-white transition-colors py-3 border-b border-blue-500/10">Initiatives</a>
+     <a href="#incubation-cell" class="mobile-nav-link text-sm text-gray-300 hover:text-white transition-colors py-3 border-b border-blue-500/10">Incubation</a>
+     <a href="#seek-support" class="mobile-nav-link text-sm text-gray-300 hover:text-white transition-colors py-3 border-b border-blue-500/10">Support</a>
+     <a href="#team" class="mobile-nav-link text-sm text-gray-300 hover:text-white transition-colors py-3 border-b border-blue-500/10">Team</a>
+     <button id="mobile-sponsors-btn" class="mobile-nav-link text-left text-sm text-gray-300 hover:text-white transition-colors py-3 border-b border-blue-500/10">Sponsors</button>
+     <a href="#contact" class="mobile-nav-link text-sm text-gray-300 hover:text-white transition-colors py-3">Contact</a>
+    </div>
+   </div>
+   <!-- Hero Section -->
    <section class="relative min-h-screen flex items-center justify-center gradient-overlay geometric-pattern pt-20">
     <div class="absolute inset-0 overflow-hidden pointer-events-none">
      <div class="absolute top-1/4 left-10 w-64 h-64 bg-blue-500/10 rounded-full blur-3xl animate-float"></div>
@@ -1682,6 +1700,46 @@
         }
       });
     });
+
+    // Mobile Menu Toggle
+    (function () {
+      const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+      const mobileMenu    = document.getElementById('mobile-menu');
+
+      function closeMobileMenu() {
+        if (mobileMenu) mobileMenu.classList.add('hidden');
+      }
+
+      if (mobileMenuBtn && mobileMenu) {
+        mobileMenuBtn.addEventListener('click', () => {
+          mobileMenu.classList.toggle('hidden');
+        });
+      }
+
+      // Close menu whenever a mobile nav link (anchor) is tapped
+      document.querySelectorAll('.mobile-nav-link').forEach(function (link) {
+        link.addEventListener('click', closeMobileMenu);
+      });
+
+      // Sponsors button in mobile menu — open modal then close menu
+      const mobileSponsorsBtn = document.getElementById('mobile-sponsors-btn');
+      if (mobileSponsorsBtn) {
+        mobileSponsorsBtn.addEventListener('click', () => {
+          if (sponsorModal) sponsorModal.classList.remove('hidden');
+        });
+      }
+
+      // Close mobile menu when tapping outside of it
+      document.addEventListener('click', (e) => {
+        if (
+          mobileMenu && mobileMenuBtn &&
+          !mobileMenu.contains(e.target) &&
+          !mobileMenuBtn.contains(e.target)
+        ) {
+          closeMobileMenu();
+        }
+      });
+    }());
   </script>
 </body>
 </html>
