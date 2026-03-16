@@ -5,8 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Futurepreneurs | E-Cell TIU</title>
   <!-- Favicon -->
-  <link rel="icon" type="image/jpeg" href="https://i.ibb.co/xSDp322g/IMG-20260216-WA0020.jpg">
-  <link rel="apple-touch-icon" href="https://i.ibb.co/xSDp322g/IMG-20260216-WA0020.jpg">
+  <link rel="icon" type="image/png" href="https://github.com/user-attachments/assets/a6797418-bca3-4120-a609-bae0323efa96">
+  <link rel="apple-touch-icon" href="https://github.com/user-attachments/assets/a6797418-bca3-4120-a609-bae0323efa96">
   <!-- SEO / Open Graph meta tags (logo appears in Google search & social previews) -->
   <meta name="description" content="Futurepreneurs – the entrepreneurship cell of TIU. Join us to innovate, build, and grow.">
   <meta property="og:type" content="website">
@@ -14,13 +14,13 @@
   <meta property="og:title" content="Futurepreneurs | E-Cell TIU">
   <meta property="og:description" content="Futurepreneurs – the entrepreneurship cell of TIU. Join us to innovate, build, and grow.">
   <meta property="og:url" content="https://futurepreneurs.social/">
-  <meta property="og:image" content="https://i.ibb.co/xSDp322g/IMG-20260216-WA0020.jpg">
+  <meta property="og:image" content="https://github.com/user-attachments/assets/a6797418-bca3-4120-a609-bae0323efa96">
   <meta property="og:image:alt" content="Futurepreneurs Logo">
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Futurepreneurs | E-Cell TIU">
   <meta name="twitter:description" content="Futurepreneurs – the entrepreneurship cell of TIU. Join us to innovate, build, and grow.">
-  <meta name="twitter:image" content="https://i.ibb.co/xSDp322g/IMG-20260216-WA0020.jpg">
+  <meta name="twitter:image" content="https://github.com/user-attachments/assets/a6797418-bca3-4120-a609-bae0323efa96">
   <!-- JSON-LD: Organization structured data (Google Knowledge Panel logo) -->
   <script type="application/ld+json">
   {
@@ -28,7 +28,7 @@
     "@type": "Organization",
     "name": "Futurepreneurs – E-Cell TIU",
     "url": "https://futurepreneurs.social/",
-    "logo": "https://i.ibb.co/xSDp322g/IMG-20260216-WA0020.jpg"
+    "logo": "https://github.com/user-attachments/assets/a6797418-bca3-4120-a609-bae0323efa96"
   }
   </script>
   <script src="https://cdn.tailwindcss.com/3.4.17"></script>
@@ -1657,19 +1657,35 @@
       });
     }
 
-    // Smooth scrolling for all anchor links
+    // Smooth scrolling for all anchor links (cross-browser, including iOS Safari)
+    function smoothScrollTo(targetEl, duration) {
+      // Matches scroll-margin-top on section[id] in CSS (keeps heading below fixed navbar)
+      var navbarHeight = 80;
+      var targetTop = targetEl.getBoundingClientRect().top + window.scrollY - navbarHeight;
+      var startTop = window.scrollY;
+      var distance = targetTop - startTop;
+      var startTime = null;
+      // Quadratic ease-in-out curve
+      function ease(t) { return t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t; }
+      function step(timestamp) {
+        if (!startTime) startTime = timestamp;
+        var elapsed = timestamp - startTime;
+        var progress = Math.min(elapsed / duration, 1);
+        window.scrollTo(0, startTop + distance * ease(progress));
+        if (progress < 1) requestAnimationFrame(step);
+      }
+      requestAnimationFrame(step);
+    }
+
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       anchor.addEventListener('click', function (e) {
-        const href = this.getAttribute('href');
-        if (href && href !== '#' && document.querySelector(href)) {
-          e.preventDefault();
-          const target = document.querySelector(href);
-          setTimeout(() => {
-            target.scrollIntoView({
-              behavior: 'smooth',
-              block: 'start'
-            });
-          }, 100);
+        var href = this.getAttribute('href');
+        if (href && href !== '#') {
+          var target = document.querySelector(href);
+          if (target) {
+            e.preventDefault();
+            smoothScrollTo(target, 700);
+          }
         }
       });
     });
