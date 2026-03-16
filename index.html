@@ -4,6 +4,33 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Futurepreneurs | E-Cell TIU</title>
+  <!-- Favicon -->
+  <link rel="icon" type="image/jpeg" href="https://i.ibb.co/xSDp322g/IMG-20260216-WA0020.jpg">
+  <link rel="apple-touch-icon" href="https://i.ibb.co/xSDp322g/IMG-20260216-WA0020.jpg">
+  <!-- SEO / Open Graph meta tags (logo appears in Google search & social previews) -->
+  <meta name="description" content="Futurepreneurs – the entrepreneurship cell of TIU. Join us to innovate, build, and grow.">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Futurepreneurs | E-Cell TIU">
+  <meta property="og:title" content="Futurepreneurs | E-Cell TIU">
+  <meta property="og:description" content="Futurepreneurs – the entrepreneurship cell of TIU. Join us to innovate, build, and grow.">
+  <meta property="og:url" content="https://futurepreneurs.social/">
+  <meta property="og:image" content="https://i.ibb.co/xSDp322g/IMG-20260216-WA0020.jpg">
+  <meta property="og:image:alt" content="Futurepreneurs Logo">
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Futurepreneurs | E-Cell TIU">
+  <meta name="twitter:description" content="Futurepreneurs – the entrepreneurship cell of TIU. Join us to innovate, build, and grow.">
+  <meta name="twitter:image" content="https://i.ibb.co/xSDp322g/IMG-20260216-WA0020.jpg">
+  <!-- JSON-LD: Organization structured data (Google Knowledge Panel logo) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Futurepreneurs – E-Cell TIU",
+    "url": "https://futurepreneurs.social/",
+    "logo": "https://i.ibb.co/xSDp322g/IMG-20260216-WA0020.jpg"
+  }
+  </script>
   <script src="https://cdn.tailwindcss.com/3.4.17"></script>
   <!-- Appwrite Web SDK (IIFE build – exposes window.Appwrite) -->
   <script src="https://cdn.jsdelivr.net/npm/appwrite@17/dist/iife/sdk.min.js"></script>
@@ -84,6 +111,11 @@
 
     * {
       scrollbar-width: none;
+    }
+
+    /* Offset anchor targets so fixed navbar does not cover section headings */
+    section[id] {
+      scroll-margin-top: 80px;
     }
     
     .font-display {
@@ -408,7 +440,28 @@
        </svg></button>
      </div>
     </div>
-   </nav><!-- Hero Section -->
+   </nav>
+   <!-- Mobile Menu Drawer -->
+   <div id="mobile-menu" class="hidden fixed top-[72px] left-0 right-0 z-40 border-b border-blue-500/20 md:hidden" style="background:#0a1628;">
+    <!-- Menu header: title + close button -->
+    <div class="flex items-center justify-between px-6 py-3 border-b border-blue-500/10">
+     <span class="text-xs font-semibold uppercase tracking-widest text-blue-300/60">Menu</span>
+     <button id="mobile-menu-close-btn" aria-label="Close menu" class="p-1 text-gray-300 hover:text-white transition-colors rounded focus:outline-none">
+      <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+     </button>
+    </div>
+    <!-- Nav links -->
+    <div class="flex flex-col px-6 pb-4 pt-2">
+     <a href="#about" class="mobile-nav-link text-sm text-gray-300 hover:text-white transition-colors py-3 border-b border-blue-500/10">About</a>
+     <a href="#initiatives" class="mobile-nav-link text-sm text-gray-300 hover:text-white transition-colors py-3 border-b border-blue-500/10">Initiatives</a>
+     <a href="#incubation-cell" class="mobile-nav-link text-sm text-gray-300 hover:text-white transition-colors py-3 border-b border-blue-500/10">Incubation</a>
+     <a href="#seek-support" class="mobile-nav-link text-sm text-gray-300 hover:text-white transition-colors py-3 border-b border-blue-500/10">Support</a>
+     <a href="#team" class="mobile-nav-link text-sm text-gray-300 hover:text-white transition-colors py-3 border-b border-blue-500/10">Team</a>
+     <button id="mobile-sponsors-btn" class="mobile-nav-link text-left text-sm text-gray-300 hover:text-white transition-colors py-3 border-b border-blue-500/10">Sponsors</button>
+     <a href="#contact" class="mobile-nav-link text-sm text-gray-300 hover:text-white transition-colors py-3">Contact</a>
+    </div>
+   </div>
+   <!-- Hero Section -->
    <section class="relative min-h-screen flex items-center justify-center gradient-overlay geometric-pattern pt-20">
     <div class="absolute inset-0 overflow-hidden pointer-events-none">
      <div class="absolute top-1/4 left-10 w-64 h-64 bg-blue-500/10 rounded-full blur-3xl animate-float"></div>
@@ -844,16 +897,10 @@
          <img src="https://i.ibb.co/wFzR7kSY/wFzR7kSY.jpg" alt="Gallery 5" loading="lazy" onerror="console.error('Image failed to load:', this.src); this.style.background='#0f2447'; this.alt='Image unavailable';">
         </div>
         <div class="carousel-item" onclick="openLightbox(this.querySelector('img').src)">
-         <img src="https://i.ibb.co/LhQW8SGG/LhQW8SGG.jpg" alt="Gallery 6" loading="lazy" onerror="console.error('Image failed to load:', this.src); this.style.background='#0f2447'; this.alt='Image unavailable';">
-        </div>
-        <div class="carousel-item" onclick="openLightbox(this.querySelector('img').src)">
          <img src="https://i.ibb.co/N2jbwBjT/N2jbwBjT.jpg" alt="Gallery 7" loading="lazy" onerror="console.error('Image failed to load:', this.src); this.style.background='#0f2447'; this.alt='Image unavailable';">
         </div>
         <div class="carousel-item" onclick="openLightbox(this.querySelector('img').src)">
          <img src="https://i.ibb.co/SX2THxyM/SX2THxyM.jpg" alt="Gallery 8" loading="lazy" onerror="console.error('Image failed to load:', this.src); this.style.background='#0f2447'; this.alt='Image unavailable';">
-        </div>
-        <div class="carousel-item" onclick="openLightbox(this.querySelector('img').src)">
-         <img src="https://i.ibb.co/kVdjdctz/kVdjdctz.jpg" alt="Gallery 9" loading="lazy" onerror="console.error('Image failed to load:', this.src); this.style.background='#0f2447'; this.alt='Image unavailable';">
         </div>
         <div class="carousel-item" onclick="openLightbox(this.querySelector('img').src)">
          <img src="https://i.ibb.co/v4ygHHJq/v4ygHHJq.jpg" alt="Gallery 10" loading="lazy" onerror="console.error('Image failed to load:', this.src); this.style.background='#0f2447'; this.alt='Image unavailable';">
@@ -886,16 +933,10 @@
          <img src="https://i.ibb.co/wFzR7kSY/wFzR7kSY.jpg" alt="Gallery 5" loading="lazy" onerror="console.error('Image failed to load:', this.src); this.style.background='#0f2447'; this.alt='Image unavailable';">
         </div>
         <div class="carousel-item" onclick="openLightbox(this.querySelector('img').src)">
-         <img src="https://i.ibb.co/LhQW8SGG/LhQW8SGG.jpg" alt="Gallery 6" loading="lazy" onerror="console.error('Image failed to load:', this.src); this.style.background='#0f2447'; this.alt='Image unavailable';">
-        </div>
-        <div class="carousel-item" onclick="openLightbox(this.querySelector('img').src)">
          <img src="https://i.ibb.co/N2jbwBjT/N2jbwBjT.jpg" alt="Gallery 7" loading="lazy" onerror="console.error('Image failed to load:', this.src); this.style.background='#0f2447'; this.alt='Image unavailable';">
         </div>
         <div class="carousel-item" onclick="openLightbox(this.querySelector('img').src)">
          <img src="https://i.ibb.co/SX2THxyM/SX2THxyM.jpg" alt="Gallery 8" loading="lazy" onerror="console.error('Image failed to load:', this.src); this.style.background='#0f2447'; this.alt='Image unavailable';">
-        </div>
-        <div class="carousel-item" onclick="openLightbox(this.querySelector('img').src)">
-         <img src="https://i.ibb.co/kVdjdctz/kVdjdctz.jpg" alt="Gallery 9" loading="lazy" onerror="console.error('Image failed to load:', this.src); this.style.background='#0f2447'; this.alt='Image unavailable';">
         </div>
         <div class="carousel-item" onclick="openLightbox(this.querySelector('img').src)">
          <img src="https://i.ibb.co/v4ygHHJq/v4ygHHJq.jpg" alt="Gallery 10" loading="lazy" onerror="console.error('Image failed to load:', this.src); this.style.background='#0f2447'; this.alt='Image unavailable';">
@@ -920,9 +961,6 @@
          <img src="https://i.ibb.co/G3N55wz9/G3N55wz9.jpg" alt="Gallery 15" loading="lazy" onerror="console.error('Image failed to load:', this.src); this.style.background='#0f2447'; this.alt='Image unavailable';">
         </div>
         <div class="carousel-item" onclick="openLightbox(this.querySelector('img').src)">
-         <img src="https://i.ibb.co/LdqyGLgW/LdqyGLgW.jpg" alt="Gallery 16" loading="lazy" onerror="console.error('Image failed to load:', this.src); this.style.background='#0f2447'; this.alt='Image unavailable';">
-        </div>
-        <div class="carousel-item" onclick="openLightbox(this.querySelector('img').src)">
          <img src="https://i.ibb.co/SD8W7PTs/SD8W7PTs.jpg" alt="Gallery 17" loading="lazy" onerror="console.error('Image failed to load:', this.src); this.style.background='#0f2447'; this.alt='Image unavailable';">
         </div>
         <div class="carousel-item" onclick="openLightbox(this.querySelector('img').src)">
@@ -935,9 +973,6 @@
          <img src="https://i.ibb.co/v4pmjJBn/v4pmjJBn.jpg" alt="Gallery 20" loading="lazy" onerror="console.error('Image failed to load:', this.src); this.style.background='#0f2447'; this.alt='Image unavailable';">
         </div>
         <div class="carousel-item" onclick="openLightbox(this.querySelector('img').src)">
-         <img src="https://i.ibb.co/KjVzJhf9/KjVzJhf9.jpg" alt="Gallery 21" loading="lazy" onerror="console.error('Image failed to load:', this.src); this.style.background='#0f2447'; this.alt='Image unavailable';">
-        </div>
-        <div class="carousel-item" onclick="openLightbox(this.querySelector('img').src)">
          <img src="https://i.ibb.co/YFqGJXvR/YFqGJXvR.jpg" alt="Gallery 22" loading="lazy" onerror="console.error('Image failed to load:', this.src); this.style.background='#0f2447'; this.alt='Image unavailable';">
         </div>
         <div class="carousel-item" onclick="openLightbox(this.querySelector('img').src)">
@@ -945,9 +980,6 @@
         </div>
         <div class="carousel-item" onclick="openLightbox(this.querySelector('img').src)">
          <img src="https://i.ibb.co/0R56LGB6/0R56LGB6.jpg" alt="Gallery 24" loading="lazy" onerror="console.error('Image failed to load:', this.src); this.style.background='#0f2447'; this.alt='Image unavailable';">
-        </div>
-        <div class="carousel-item" onclick="openLightbox(this.querySelector('img').src)">
-         <img src="https://i.ibb.co/VYZVxnWq/VYZVxnWq.jpg" alt="Gallery 25" loading="lazy" onerror="console.error('Image failed to load:', this.src); this.style.background='#0f2447'; this.alt='Image unavailable';">
         </div>
         <div class="carousel-item" onclick="openLightbox(this.querySelector('img').src)">
          <img src="https://i.ibb.co/Skdz1KJ/Skdz1KJ.jpg" alt="Gallery 26" loading="lazy" onerror="console.error('Image failed to load:', this.src); this.style.background='#0f2447'; this.alt='Image unavailable';">
@@ -989,9 +1021,6 @@
          <img src="https://i.ibb.co/G3N55wz9/G3N55wz9.jpg" alt="Gallery 15" loading="lazy" onerror="console.error('Image failed to load:', this.src); this.style.background='#0f2447'; this.alt='Image unavailable';">
         </div>
         <div class="carousel-item" onclick="openLightbox(this.querySelector('img').src)">
-         <img src="https://i.ibb.co/LdqyGLgW/LdqyGLgW.jpg" alt="Gallery 16" loading="lazy" onerror="console.error('Image failed to load:', this.src); this.style.background='#0f2447'; this.alt='Image unavailable';">
-        </div>
-        <div class="carousel-item" onclick="openLightbox(this.querySelector('img').src)">
          <img src="https://i.ibb.co/SD8W7PTs/SD8W7PTs.jpg" alt="Gallery 17" loading="lazy" onerror="console.error('Image failed to load:', this.src); this.style.background='#0f2447'; this.alt='Image unavailable';">
         </div>
         <div class="carousel-item" onclick="openLightbox(this.querySelector('img').src)">
@@ -1004,9 +1033,6 @@
          <img src="https://i.ibb.co/v4pmjJBn/v4pmjJBn.jpg" alt="Gallery 20" loading="lazy" onerror="console.error('Image failed to load:', this.src); this.style.background='#0f2447'; this.alt='Image unavailable';">
         </div>
         <div class="carousel-item" onclick="openLightbox(this.querySelector('img').src)">
-         <img src="https://i.ibb.co/KjVzJhf9/KjVzJhf9.jpg" alt="Gallery 21" loading="lazy" onerror="console.error('Image failed to load:', this.src); this.style.background='#0f2447'; this.alt='Image unavailable';">
-        </div>
-        <div class="carousel-item" onclick="openLightbox(this.querySelector('img').src)">
          <img src="https://i.ibb.co/YFqGJXvR/YFqGJXvR.jpg" alt="Gallery 22" loading="lazy" onerror="console.error('Image failed to load:', this.src); this.style.background='#0f2447'; this.alt='Image unavailable';">
         </div>
         <div class="carousel-item" onclick="openLightbox(this.querySelector('img').src)">
@@ -1014,9 +1040,6 @@
         </div>
         <div class="carousel-item" onclick="openLightbox(this.querySelector('img').src)">
          <img src="https://i.ibb.co/0R56LGB6/0R56LGB6.jpg" alt="Gallery 24" loading="lazy" onerror="console.error('Image failed to load:', this.src); this.style.background='#0f2447'; this.alt='Image unavailable';">
-        </div>
-        <div class="carousel-item" onclick="openLightbox(this.querySelector('img').src)">
-         <img src="https://i.ibb.co/VYZVxnWq/VYZVxnWq.jpg" alt="Gallery 25" loading="lazy" onerror="console.error('Image failed to load:', this.src); this.style.background='#0f2447'; this.alt='Image unavailable';">
         </div>
         <div class="carousel-item" onclick="openLightbox(this.querySelector('img').src)">
          <img src="https://i.ibb.co/Skdz1KJ/Skdz1KJ.jpg" alt="Gallery 26" loading="lazy" onerror="console.error('Image failed to load:', this.src); this.style.background='#0f2447'; this.alt='Image unavailable';">
@@ -1133,14 +1156,14 @@
       </div>
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8"><div class="card-gradient rounded-3xl p-6 text-center hover:border-blue-400/40 transition-all group">
         <div class="w-24 h-24 mx-auto mb-6 rounded-2xl overflow-hidden bg-blue-700 flex items-center justify-center group-hover:scale-110 transition-transform">
-         <img src="https://img.sanishtech.com/u/176f553f6ba629db8311ccad3e81395a.jpg" alt="Teyasa Jana" loading="lazy" onerror="this.parentElement.style.background='#1e40af';">
+         <img src="https://ibb.co/pv77vb3N" alt="Teyasa Jana" loading="lazy" onerror="this.parentElement.style.background='#1e40af';">
         </div><h4 class="font-display text-xl font-bold mb-1">Teyasa Jana</h4><p class="text-amber-400 text-sm font-semibold mb-3">President</p><p class="text-blue-100/60 text-sm">Steering vision and direction</p></div> <div class="card-gradient rounded-3xl p-6 text-center hover:border-blue-400/40 transition-all group">
         <div class="w-24 h-24 mx-auto mb-6 rounded-2xl overflow-hidden bg-amber-700 flex items-center justify-center group-hover:scale-110 transition-transform">
-         <img src="https://img.sanishtech.com/u/69ae8be3d0ae4a3ef451dd8dbc46f24c.jpg" alt="Tanay Kedia" loading="lazy" onerror="this.parentElement.style.background='#b45309';">
+         <img src="https://ibb.co/Qv55RNSL" alt="Tanay Kedia" loading="lazy" onerror="this.parentElement.style.background='#b45309';">
         </div><h4 class="font-display text-xl font-bold mb-1">Tanay Kedia</h4><p class="text-amber-400 text-sm font-semibold mb-3">Secretary</p><p class="text-blue-100/60 text-sm">Managing operations</p></div>
        <div class="card-gradient rounded-3xl p-6 text-center hover:border-blue-400/40 transition-all group">
         <div class="w-24 h-24 mx-auto mb-6 rounded-2xl overflow-hidden bg-green-700 flex items-center justify-center group-hover:scale-110 transition-transform">
-         <img src="https://img.sanishtech.com/u/93fbad6fdb68d9fd73ab73ce28b9e991.jpg" alt="Operations Head" loading="lazy" onerror="this.parentElement.style.background='#15803d';">
+         <img src="https://ibb.co/FLktgFNy" alt="Operations Head" loading="lazy" onerror="this.parentElement.style.background='#15803d';">
         </div>
         <h4 class="font-display text-xl font-bold mb-1">Operations Head</h4>
         <p class="text-amber-400 text-sm font-semibold mb-3">Operations</p>
@@ -1148,7 +1171,7 @@
        </div>
        <div class="card-gradient rounded-3xl p-6 text-center hover:border-blue-400/40 transition-all group">
         <div class="w-24 h-24 mx-auto mb-6 rounded-2xl overflow-hidden bg-red-700 flex items-center justify-center group-hover:scale-110 transition-transform">
-         <img src="https://img.sanishtech.com/u/b099278c9e3938bbf0ce2eda374c5da9.jpg" alt="Events Head" loading="lazy" onerror="this.parentElement.style.background='#b91c1c';">
+         <img src="https://ibb.co/GQtcZRRc" alt="Events Head" loading="lazy" onerror="this.parentElement.style.background='#b91c1c';">
         </div>
         <h4 class="font-display text-xl font-bold mb-1">Events Head</h4>
         <p class="text-amber-400 text-sm font-semibold mb-3">Events</p>
@@ -1156,7 +1179,7 @@
        </div>
        <div class="card-gradient rounded-3xl p-6 text-center hover:border-blue-400/40 transition-all group">
         <div class="w-24 h-24 mx-auto mb-6 rounded-2xl overflow-hidden bg-purple-700 flex items-center justify-center group-hover:scale-110 transition-transform">
-         <img src="https://img.sanishtech.com/u/fdb16ff70afc95773652857f641f97b4.jpg" alt="PR Head" loading="lazy" onerror="this.parentElement.style.background='#6b21a8';">
+         <img src="https://ibb.co/6cVj1CRm" alt="PR Head" loading="lazy" onerror="this.parentElement.style.background='#6b21a8';">
         </div>
         <h4 class="font-display text-xl font-bold mb-1">PR Head</h4>
         <p class="text-amber-400 text-sm font-semibold mb-3">Communications</p>
@@ -1221,7 +1244,7 @@
         <div class="bg-navy-dark/40 rounded-2xl p-5 border border-blue-500/10 text-center">
          <svg class="w-6 h-6 text-amber-400 mx-auto mb-3" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
          <p class="text-blue-200 text-sm font-semibold mb-1">Collaboration</p>
-         <a href="mailto:pr.team@futurepreneurs.social" class="text-amber-400 hover:text-amber-300 text-sm">pr.team@futurepreneurs.social</a>
+         <a href="mailto:pr.team@futurepreneurs.works" class="text-amber-400 hover:text-amber-300 text-sm">pr.team@futurepreneurs.works</a>
         </div>
        </div>
       </div>
@@ -1435,26 +1458,21 @@
       'https://i.ibb.co/7tHWgQVb/7tHWgQVb.jpg',
       'https://i.ibb.co/Zz1BmY77/Zz1BmY77.jpg',
       'https://i.ibb.co/wFzR7kSY/wFzR7kSY.jpg',
-      'https://i.ibb.co/LhQW8SGG/LhQW8SGG.jpg',
       'https://i.ibb.co/N2jbwBjT/N2jbwBjT.jpg',
       'https://i.ibb.co/SX2THxyM/SX2THxyM.jpg',
-      'https://i.ibb.co/kVdjdctz/kVdjdctz.jpg',
       'https://i.ibb.co/v4ygHHJq/v4ygHHJq.jpg',
       'https://i.ibb.co/tMhf5Zn2/tMhf5Zn2.jpg',
       'https://i.ibb.co/7NbRL7JY/7NbRL7JY.jpg',
       'https://i.ibb.co/vCbykzzL/vCbykzzL.jpg',
       'https://i.ibb.co/kvJWgR3/kvJWgR3.jpg',
       'https://i.ibb.co/G3N55wz9/G3N55wz9.jpg',
-      'https://i.ibb.co/LdqyGLgW/LdqyGLgW.jpg',
       'https://i.ibb.co/SD8W7PTs/SD8W7PTs.jpg',
       'https://i.ibb.co/C5xPFP2G/C5xPFP2G.jpg',
       'https://i.ibb.co/6R6msRXX/6R6msRXX.jpg',
       'https://i.ibb.co/v4pmjJBn/v4pmjJBn.jpg',
-      'https://i.ibb.co/KjVzJhf9/KjVzJhf9.jpg',
       'https://i.ibb.co/YFqGJXvR/YFqGJXvR.jpg',
       'https://i.ibb.co/Jwfn45d5/Jwfn45d5.jpg',
       'https://i.ibb.co/0R56LGB6/0R56LGB6.jpg',
-      'https://i.ibb.co/VYZVxnWq/VYZVxnWq.jpg',
       'https://i.ibb.co/Skdz1KJ/Skdz1KJ.jpg',
       'https://i.ibb.co/V02hHzks/V02hHzks.jpg',
       'https://i.ibb.co/60WqQQcZ/60WqQQcZ.jpg',
@@ -1655,6 +1673,52 @@
         }
       });
     });
+
+    // Mobile Menu Toggle
+    (function () {
+      const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+      const mobileMenu    = document.getElementById('mobile-menu');
+
+      function closeMobileMenu() {
+        if (mobileMenu) mobileMenu.classList.add('hidden');
+      }
+
+      if (mobileMenuBtn && mobileMenu) {
+        mobileMenuBtn.addEventListener('click', () => {
+          mobileMenu.classList.toggle('hidden');
+        });
+      }
+
+      // × close button inside the mobile menu
+      const mobileMenuCloseBtn = document.getElementById('mobile-menu-close-btn');
+      if (mobileMenuCloseBtn) {
+        mobileMenuCloseBtn.addEventListener('click', closeMobileMenu);
+      }
+
+      // Close menu whenever a mobile nav link (anchor) is tapped
+      document.querySelectorAll('.mobile-nav-link').forEach(function (link) {
+        link.addEventListener('click', closeMobileMenu);
+      });
+
+      // Sponsors button in mobile menu — open modal then close menu
+      const mobileSponsorsBtn = document.getElementById('mobile-sponsors-btn');
+      if (mobileSponsorsBtn) {
+        mobileSponsorsBtn.addEventListener('click', () => {
+          if (sponsorModal) sponsorModal.classList.remove('hidden');
+        });
+      }
+
+      // Close mobile menu when tapping outside of it
+      document.addEventListener('click', (e) => {
+        if (
+          mobileMenu && mobileMenuBtn &&
+          !mobileMenu.contains(e.target) &&
+          !mobileMenuBtn.contains(e.target)
+        ) {
+          closeMobileMenu();
+        }
+      });
+    }());
   </script>
 </body>
 </html>
