@@ -442,8 +442,16 @@
     </div>
    </nav>
    <!-- Mobile Menu Drawer -->
-   <div id="mobile-menu" class="hidden fixed top-[72px] left-0 right-0 z-40 nav-blur border-b border-blue-500/10 md:hidden">
-    <div class="flex flex-col px-6 py-2">
+   <div id="mobile-menu" class="hidden fixed top-[72px] left-0 right-0 z-40 border-b border-blue-500/20 md:hidden" style="background:#0a1628;">
+    <!-- Menu header: title + close button -->
+    <div class="flex items-center justify-between px-6 py-3 border-b border-blue-500/10">
+     <span class="text-xs font-semibold uppercase tracking-widest text-blue-300/60">Menu</span>
+     <button id="mobile-menu-close-btn" aria-label="Close menu" class="p-1 text-gray-300 hover:text-white transition-colors rounded focus:outline-none">
+      <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+     </button>
+    </div>
+    <!-- Nav links -->
+    <div class="flex flex-col px-6 pb-4 pt-2">
      <a href="#about" class="mobile-nav-link text-sm text-gray-300 hover:text-white transition-colors py-3 border-b border-blue-500/10">About</a>
      <a href="#initiatives" class="mobile-nav-link text-sm text-gray-300 hover:text-white transition-colors py-3 border-b border-blue-500/10">Initiatives</a>
      <a href="#incubation-cell" class="mobile-nav-link text-sm text-gray-300 hover:text-white transition-colors py-3 border-b border-blue-500/10">Incubation</a>
@@ -1714,6 +1722,12 @@
         mobileMenuBtn.addEventListener('click', () => {
           mobileMenu.classList.toggle('hidden');
         });
+      }
+
+      // × close button inside the mobile menu
+      const mobileMenuCloseBtn = document.getElementById('mobile-menu-close-btn');
+      if (mobileMenuCloseBtn) {
+        mobileMenuCloseBtn.addEventListener('click', closeMobileMenu);
       }
 
       // Close menu whenever a mobile nav link (anchor) is tapped
